@@ -25,9 +25,3 @@ data class ScatterPoint(
     val size: Float = 8f
 )
 
-enum class PointShape {
-    CIRCLE,
-    SQUARE,
-    TRIANGLE,
-    DIAMOND
-}

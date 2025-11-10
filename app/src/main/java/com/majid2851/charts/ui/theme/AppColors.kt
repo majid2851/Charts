@@ -27,8 +27,13 @@ object AppColors {
     val Transparent = Color.Transparent
     
     val GridLine = Color.LightGray
+    val GridColorDefault = Color(0xFFE0E0E0)
     val AxisLine = Color.Gray
+    val AxisColorDefault = Color(0xFF666666)
     val PlaceholderText = Color.Gray
+    
+    val RechartsBlue = Color(0xFF8884d8)
+    val RechartsGreen = Color(0xFF82ca9d)
     
     val BullishCandle = Color.Green
     val BearishCandle = Color.Red

@@ -32,7 +32,7 @@ fun GaugeChart(
             Text(
                 text = it,
                 fontSize = FontSizes.titleLarge,
-                modifier = Modifier.padding(bottom = Dimens.chartPaddingSmall)
+                modifier = Modifier.padding(bottom = Dimens.paddingSmall)
             )
         }
 
@@ -46,7 +46,7 @@ fun GaugeChart(
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(Dimens.chartPaddingSmall)
+                verticalArrangement = Arrangement.spacedBy(Dimens.paddingSmall)
             ) {
                 Text(
                     text = Strings.GAUGE_CHART + Strings.PLACEHOLDER_PIE_STYLE + data.gaugeStyle.name,

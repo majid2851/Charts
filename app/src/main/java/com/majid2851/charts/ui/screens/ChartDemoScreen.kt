@@ -2,6 +2,7 @@ package com.majid2851.charts.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -55,24 +56,29 @@ fun ChartDemoScreen(modifier: Modifier = Modifier) {
             LazyColumn(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = Dimens.chartPaddingDefault),
+                    .padding(horizontal = Dimens.paddingDefault),
                 horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally
             ) {
                 item {
                     Text(
                         text = Strings.SELECT_CHART_TYPE,
                         style = MaterialTheme.typography.titleMedium,
-                        modifier = Modifier.padding(vertical = Dimens.chartPaddingSmall)
+                        modifier = Modifier.padding(vertical = Dimens.paddingSmall)
                     )
                 }
 
-                items(chartTypes) { chartType ->
-                    FilterChip(
-                        selected = selectedChart == chartType,
-                        onClick = { selectedChart = chartType },
-                        label = { Text(chartType) },
-                        modifier = Modifier.padding(vertical = Dimens.chipVerticalPadding)
-                    )
+                item {
+                    LazyRow {
+                        items(chartTypes) { chartType ->
+                            FilterChip(
+                                selected = selectedChart == chartType,
+                                onClick = { selectedChart = chartType },
+                                label = { Text(chartType) },
+                                modifier = Modifier
+                                    .padding(horizontal = Dimens.paddingSmall)
+                            )
+                        }
+                    }
                 }
 
                 item {
@@ -136,26 +142,30 @@ private fun getSampleLineChartData() = LineChartData(
     description = Strings.SAMPLE_DESCRIPTION,
     lines = listOf(
         LineDataSet(
-            label = Strings.SERIES_1,
+            label = "pv",
             dataPoints = listOf(
-                DataPoint(0f, 10f),
-                DataPoint(1f, 25f),
-                DataPoint(2f, 15f),
-                DataPoint(3f, 30f),
-                DataPoint(4f, 20f)
+                DataPoint(0f, 2400f),  // Page A
+                DataPoint(1f, 1398f),  // Page B
+                DataPoint(2f, 9800f),  // Page C
+                DataPoint(3f, 3908f),  // Page D
+                DataPoint(4f, 4800f),  // Page E
+                DataPoint(5f, 3800f),  // Page F
+                DataPoint(6f, 4300f)   // Page G
             ),
-            lineColor = AppColors.Blue
+            lineColor = androidx.compose.ui.graphics.Color(0xFF8884d8)
         ),
         LineDataSet(
-            label = Strings.SERIES_2,
+            label = "uv",
             dataPoints = listOf(
-                DataPoint(0f, 5f),
-                DataPoint(1f, 15f),
-                DataPoint(2f, 25f),
-                DataPoint(3f, 20f),
-                DataPoint(4f, 30f)
+                DataPoint(0f, 4000f),  // Page A
+                DataPoint(1f, 3000f),  // Page B
+                DataPoint(2f, 2000f),  // Page C
+                DataPoint(3f, 2780f),  // Page D
+                DataPoint(4f, 1890f),  // Page E
+                DataPoint(5f, 2390f),  // Page F
+                DataPoint(6f, 3490f)   // Page G
             ),
-            lineColor = AppColors.Red
+            lineColor = androidx.compose.ui.graphics.Color(0xFF82ca9d)
         )
     )
 )
@@ -226,7 +236,11 @@ private fun getSampleScatterChartData() = ScatterChartData(
 private fun getSampleRadarChartData() = RadarChartData(
     title = Strings.RADAR_CHART_TITLE,
     description = Strings.SAMPLE_DESCRIPTION,
-    labels = listOf(Strings.SPEED, Strings.POWER, Strings.DEFENSE, Strings.SKILL, Strings.ACCURACY),
+    labels = listOf(
+        Strings.SPEED, Strings.POWER,
+        Strings.DEFENSE, Strings.SKILL,
+        Strings.ACCURACY
+    ),
     dataSets = listOf(
         RadarDataSet(
             label = Strings.PLAYER_1,

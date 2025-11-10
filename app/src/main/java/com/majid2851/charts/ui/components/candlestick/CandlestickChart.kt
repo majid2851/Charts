@@ -30,7 +30,7 @@ fun CandlestickChart(
             Text(
                 text = it,
                 fontSize = FontSizes.titleLarge,
-                modifier = Modifier.padding(bottom = Dimens.chartPaddingSmall)
+                modifier = Modifier.padding(bottom = Dimens.paddingSmall)
             )
         }
 

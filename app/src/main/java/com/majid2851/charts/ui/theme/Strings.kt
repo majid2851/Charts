@@ -14,6 +14,7 @@ object Strings {
     const val GAUGE_CHART = "Gauge Chart"
     
     const val LINE_CHART_TITLE = "Line Chart Example"
+    const val SIMPLE_LINE_CHART_TITLE = "Simple Line Chart"
     const val BAR_CHART_TITLE = "Bar Chart Example"
     const val PIE_CHART_TITLE = "Pie Chart Example"
     const val AREA_CHART_TITLE = "Area Chart Example"
@@ -64,5 +65,16 @@ object Strings {
     const val PLACEHOLDER_AREA_MODE = " - "
     const val PLACEHOLDER_CANDLE_COUNT = " candles"
     const val PLACEHOLDER_RADAR_AXES = " axes"
+    
+    const val LABEL_PV = "pv"
+    const val LABEL_UV = "uv"
+    
+    const val PAGE_A = "Page A"
+    const val PAGE_B = "Page B"
+    const val PAGE_C = "Page C"
+    const val PAGE_D = "Page D"
+    const val PAGE_E = "Page E"
+    const val PAGE_F = "Page F"
+    const val PAGE_G = "Page G"
 }
 
