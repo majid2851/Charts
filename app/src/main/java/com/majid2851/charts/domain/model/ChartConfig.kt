@@ -13,7 +13,12 @@ data class ChartConfig(
     val backgroundColor: Color = Color.Transparent,
     val chartPadding: Dp = 16.dp,
     val isInteractive: Boolean = true,
-    val cartesianGrid: CartesianGridConfig = CartesianGridConfig()
+    val cartesianGrid: CartesianGridConfig = CartesianGridConfig(),
+    val enableZoom: Boolean = false,
+    val enablePan: Boolean = false,
+    val showZoomControls: Boolean = false,
+    val minZoom: Float = 0.5f,
+    val maxZoom: Float = 5f
 )
 
 data class AxisConfig(
@@ -22,7 +27,7 @@ data class AxisConfig(
     val labelCount: Int = 5,
     val axisColor: Color = Color.Gray,
     val gridColor: Color = Color.LightGray,
-    val labelTextSize: Float = 12f
+    val labelTextSize: Float = 16f
 )
 
 data class CartesianGridConfig(

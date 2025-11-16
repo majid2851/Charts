@@ -27,7 +27,7 @@ object AppColors {
     val Transparent = Color.Transparent
     
     val GridLine = Color.LightGray
-    val GridColorDefault = Color(0xFFE0E0E0)
+    val GridColorDefault = Color(0xFFAAA6A6)
     val AxisLine = Color.Gray
     val AxisColorDefault = Color(0xFF666666)
     val PlaceholderText = Color.Gray

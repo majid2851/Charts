@@ -13,7 +13,7 @@ import com.majid2851.charts.ui.components.area.AreaChart
 import com.majid2851.charts.ui.components.bar.BarChart
 import com.majid2851.charts.ui.components.candlestick.CandlestickChart
 import com.majid2851.charts.ui.components.gauge.GaugeChart
-import com.majid2851.charts.ui.components.line.LineChart
+import com.majid2851.charts.ui.components.line.line_chart.LineChart
 import com.majid2851.charts.ui.components.pie.PieChart
 import com.majid2851.charts.ui.components.radar.RadarChart
 import com.majid2851.charts.ui.components.scatter.ScatterChart
@@ -144,29 +144,46 @@ private fun getSampleLineChartData() = LineChartData(
         LineDataSet(
             label = "pv",
             dataPoints = listOf(
-                DataPoint(0f, 2400f),  // Page A
-                DataPoint(1f, 1398f),  // Page B
-                DataPoint(2f, 9800f),  // Page C
-                DataPoint(3f, 3908f),  // Page D
-                DataPoint(4f, 4800f),  // Page E
-                DataPoint(5f, 3800f),  // Page F
-                DataPoint(6f, 4300f)   // Page G
+                DataPoint(0f, 2400f, "Page A"),
+                DataPoint(1f, 1398f, "Page B"),
+                DataPoint(2f, 9800f, "Page C"),
+                DataPoint(3f, 3908f, "Page D"),
+                DataPoint(4f, 4800f, "Page E"),
+                DataPoint(5f, 3800f, "Page F"),
+                DataPoint(6f, 4300f, "Page G")
             ),
             lineColor = androidx.compose.ui.graphics.Color(0xFF8884d8)
         ),
         LineDataSet(
             label = "uv",
             dataPoints = listOf(
-                DataPoint(0f, 4000f),  // Page A
-                DataPoint(1f, 3000f),  // Page B
-                DataPoint(2f, 2000f),  // Page C
-                DataPoint(3f, 2780f),  // Page D
-                DataPoint(4f, 1890f),  // Page E
-                DataPoint(5f, 2390f),  // Page F
-                DataPoint(6f, 3490f)   // Page G
+                DataPoint(0f, 4000f, "Page A"),
+                DataPoint(1f, 3000f, "Page B"),
+                DataPoint(2f, 2000f, "Page C"),
+                DataPoint(3f, 2780f, "Page D"),
+                DataPoint(4f, 1890f, "Page E"),
+                DataPoint(5f, 2390f, "Page F"),
+                DataPoint(6f, 3490f, "Page G")
             ),
             lineColor = androidx.compose.ui.graphics.Color(0xFF82ca9d)
         )
+    ),
+    config = ChartConfig(
+        showGrid = true,
+        showAxis = true,
+        showLegend = true,
+        isInteractive = true
+    ),
+    xAxisConfig = AxisConfig(
+        showLabels = true,
+        labelTextSize = 32f,  // ✅ Increased X-axis font size
+        axisColor = androidx.compose.ui.graphics.Color.Black
+    ),
+    yAxisConfig = AxisConfig(
+        showLabels = true,
+        labelTextSize = 32f,  // ✅ Increased Y-axis font size
+        labelCount = 5,
+        axisColor = androidx.compose.ui.graphics.Color.Black
     )
 )
 

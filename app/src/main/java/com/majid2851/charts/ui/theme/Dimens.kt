@@ -6,6 +6,7 @@ import androidx.compose.ui.unit.dp
 object Dimens {
     // Padding
     val paddingDefault: Dp = 16.dp
+    val paddingMedium=12.dp
     val paddingSmall: Dp = 8.dp
     val paddingLarge: Dp = 24.dp
     val chartPaddingTiny: Dp = 4.dp
@@ -29,9 +30,12 @@ object Dimens {
     // Line and Point dimensions
     val lineWidthDefault: Float = 2f
     val lineWidthEnhanced: Float = 2.5f
+    val lineWidthActive: Float = 3.5f
     val pointRadiusDefault: Float = 4f
     val pointRadiusLarge: Float = 6f
     val pointRadiusActive: Float = 8f
+    val pointRadiusInteractive: Float = 10f
+    val pointBorderWidth: Float = 2f
     val barWidthDefault: Float = 0.8f
     val axisStrokeWidth: Float = 2f
     val gridLineWidth: Float = 1f

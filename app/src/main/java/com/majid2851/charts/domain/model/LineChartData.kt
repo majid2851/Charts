@@ -21,14 +21,26 @@ data class LineDataSet(
     val lineColor: Color = Color.Blue,
     val lineWidth: Float = 2f,
     val showPoints: Boolean = true,
-    val pointRadius: Float = 4f,
-    val isCurved: Boolean = false,
+    val pointRadius: Float = 10f,
+    val isCurved: Boolean = true,
     val fillArea: Boolean = false,
     val fillColor: Color = Color.Blue.copy(alpha = 0.3f),
     val isDashed: Boolean = false,
     val dashPattern: FloatArray = floatArrayOf(10f, 5f),
     val useSecondaryYAxis: Boolean = false,
-    val customPointShape: PointShape = PointShape.CIRCLE
+    val customPointShape: PointShape = PointShape.CIRCLE,
+    val interactionConfig: PointInteractionConfig = PointInteractionConfig()
+)
+
+data class PointInteractionConfig(
+    val enableInteraction: Boolean = true,
+    val activePointRadius: Float = 8f,
+    val activePointColor: Color? = null,
+    val activeLineColor: Color? = null,
+    val activeLineWidth: Float? = null,
+    val showActivePointBorder: Boolean = true,
+    val activePointBorderColor: Color = Color.White,
+    val activePointBorderWidth: Float = 2f
 )
 
 data class ReferenceLine(
