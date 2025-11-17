@@ -266,7 +266,7 @@ private fun getSampleRadarChartData() = RadarChartData(
             fillColor = AppColors.Blue.withAlpha(0.3f)
         )
     ),
-    maxValue = 100f
+    domain = Pair(0f, 100f) // Replaced maxValue with domain (min, max)
 )
 
 private fun getSampleCandlestickChartData() = CandlestickChartData(
