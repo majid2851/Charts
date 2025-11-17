@@ -152,9 +152,6 @@ fun AreaChart(
     }
 }
 
-/**
- * Calculate bounds for area data
- */
 private fun calculateAreaBounds(
     areas: List<AreaDataSet>,
     stackingMode: AreaStackingMode
@@ -191,9 +188,6 @@ private fun calculateAreaBounds(
     )
 }
 
-/**
- * Calculate maximum stacked value
- */
 private fun calculateMaxStackedValue(areas: List<AreaDataSet>): Float {
     if (areas.isEmpty()) return 0f
     
@@ -206,9 +200,6 @@ private fun calculateMaxStackedValue(areas: List<AreaDataSet>): Float {
     } ?: 0f
 }
 
-/**
- * Draw regular (non-stacked) areas
- */
 private fun DrawScope.drawRegularAreas(
     areas: List<AreaDataSet>,
     bounds: Bounds,
@@ -264,9 +255,6 @@ private fun DrawScope.drawRegularAreas(
     }
 }
 
-/**
- * Draw a single area fill
- */
 private fun DrawScope.drawSingleArea(
     area: AreaDataSet,
     bounds: Bounds,
@@ -284,8 +272,7 @@ private fun DrawScope.drawSingleArea(
     val path = Path()
     var isFirstPoint = true
     val baselineY = mapYToCanvas(0f.coerceIn(bounds.minY, bounds.maxY), bounds, padding, size.height)
-    
-    // Draw top line of area
+
     validPoints.forEachIndexed { index, point ->
         point?.let {
             val x = mapXToCanvas(it.x, bounds, padding, size.width)
@@ -297,7 +284,6 @@ private fun DrawScope.drawSingleArea(
                 isFirstPoint = false
             } else {
                 if (area.isCurved && index > 0) {
-                    // Smooth curve
                     val prevPoint = validPoints[index - 1]
                     prevPoint?.let { prev ->
                         val prevX = mapXToCanvas(prev.x, bounds, padding, size.width)
@@ -311,10 +297,8 @@ private fun DrawScope.drawSingleArea(
                 }
             }
         }
-        
-        // Handle null points
+
         if (point == null && !connectNulls) {
-            // Start new path segment
             isFirstPoint = true
         }
     }
