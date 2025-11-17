@@ -240,10 +240,10 @@ private fun getSampleScatterChartData() = ScatterChartData(
         ScatterDataSet(
             label = Strings.DATASET_1,
             dataPoints = listOf(
-                ScatterPoint(10f, 20f, Strings.POINT_1),
-                ScatterPoint(15f, 30f, Strings.POINT_2),
-                ScatterPoint(20f, 25f, Strings.POINT_3),
-                ScatterPoint(25f, 35f, Strings.POINT_4)
+                ScatterPoint(10f, 20f, label = Strings.POINT_1),
+                ScatterPoint(15f, 30f, label = Strings.POINT_2),
+                ScatterPoint(20f, 25f, label = Strings.POINT_3),
+                ScatterPoint(25f, 35f, label = Strings.POINT_4)
             ),
             pointColor = AppColors.Blue
         )
