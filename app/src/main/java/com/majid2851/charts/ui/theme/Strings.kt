@@ -12,6 +12,7 @@ object Strings {
     const val RADAR_CHART = "Radar Chart"
     const val CANDLESTICK_CHART = "Candlestick Chart"
     const val GAUGE_CHART = "Gauge Chart"
+    const val COMPOSED_CHART = "Composed Chart"
     
     const val LINE_CHART_TITLE = "Line Chart Example"
     const val SIMPLE_LINE_CHART_TITLE = "Simple Line Chart"
@@ -22,6 +23,7 @@ object Strings {
     const val RADAR_CHART_TITLE = "Radar Chart Example"
     const val CANDLESTICK_CHART_TITLE = "Candlestick Chart Example"
     const val GAUGE_CHART_TITLE = "Gauge Chart Example"
+    const val COMPOSED_CHART_TITLE = "Composed Chart Example"
     
     const val SAMPLE_DESCRIPTION = "Sample chart"
     const val FINANCIAL_CHART_DESCRIPTION = "Sample financial chart"

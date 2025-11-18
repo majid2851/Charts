@@ -12,6 +12,7 @@ import com.majid2851.charts.domain.model.*
 import com.majid2851.charts.ui.components.area.AreaChart
 import com.majid2851.charts.ui.components.bar.BarChart
 import com.majid2851.charts.ui.components.candlestick.CandlestickChart
+import com.majid2851.charts.ui.components.composed.ComposedChart
 import com.majid2851.charts.ui.components.gauge.GaugeChart
 import com.majid2851.charts.ui.components.line.line_chart.LineChart
 import com.majid2851.charts.ui.components.pie.PieChart
@@ -35,7 +36,8 @@ fun ChartDemoScreen(modifier: Modifier = Modifier) {
             Strings.SCATTER_CHART,
             Strings.RADAR_CHART,
             Strings.CANDLESTICK_CHART,
-            Strings.GAUGE_CHART
+            Strings.GAUGE_CHART,
+            Strings.COMPOSED_CHART
         )
     }
 
@@ -123,6 +125,10 @@ fun ChartDemoScreen(modifier: Modifier = Modifier) {
                             )
                             Strings.GAUGE_CHART -> GaugeChart(
                                 data = getSampleGaugeChartData(),
+                                modifier = Modifier.fillMaxSize()
+                            )
+                            Strings.COMPOSED_CHART -> ComposedChart(
+                                data = getSampleComposedChartData(),
                                 modifier = Modifier.fillMaxSize()
                             )
                         }
@@ -291,6 +297,66 @@ private fun getSampleGaugeChartData() = GaugeChartData(
         GaugeRange(0f, 33f, AppColors.GaugeRangeLow, Strings.RANGE_LOW),
         GaugeRange(33f, 66f, AppColors.GaugeRangeMedium, Strings.RANGE_MEDIUM),
         GaugeRange(66f, 100f, AppColors.GaugeRangeHigh, Strings.RANGE_HIGH)
+    )
+)
+
+private fun getSampleComposedChartData() = ComposedChartData(
+    title = Strings.COMPOSED_CHART_TITLE,
+    categories = listOf(
+        Strings.PAGE_A, Strings.PAGE_B, Strings.PAGE_C,
+        Strings.PAGE_D, Strings.PAGE_E, Strings.PAGE_F
+    ),
+    areaDataSets = listOf(
+        AreaDataSet(
+            label = "amt",
+            dataPoints = listOf(
+                DataPoint(0f, 1400f),
+                DataPoint(1f, 1506f),
+                DataPoint(2f, 989f),
+                DataPoint(3f, 1228f),
+                DataPoint(4f, 1100f),
+                DataPoint(5f, 1700f)
+            ),
+            lineColor = androidx.compose.ui.graphics.Color(0xFF8884d8),
+            fillColor = androidx.compose.ui.graphics.Color(0xFF8884d8),
+            fillOpacity = 0.3f
+        )
+    ),
+    barDataSets = listOf(
+        ComposedBarDataSet(
+            dataKey = Strings.LABEL_PV,
+            label = Strings.LABEL_PV,
+            dataPoints = listOf(
+                DataPoint(0f, 800f),
+                DataPoint(1f, 967f),
+                DataPoint(2f, 1098f),
+                DataPoint(3f, 1200f),
+                DataPoint(4f, 1108f),
+                DataPoint(5f, 680f)
+            ),
+            color = androidx.compose.ui.graphics.Color(0xFF413ea0),
+            barSize = 20f
+        )
+    ),
+    lineDataSets = listOf(
+        LineDataSet(
+            label = Strings.LABEL_UV,
+            dataPoints = listOf(
+                DataPoint(0f, 590f),
+                DataPoint(1f, 868f),
+                DataPoint(2f, 1397f),
+                DataPoint(3f, 1480f),
+                DataPoint(4f, 1520f),
+                DataPoint(5f, 1400f)
+            ),
+            lineColor = androidx.compose.ui.graphics.Color(0xFFff7300),
+            lineWidth = 2f
+        )
+    ),
+    config = ChartConfig(
+        showGrid = true,
+        showAxis = true,
+        showLegend = true
     )
 )
 

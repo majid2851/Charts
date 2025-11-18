@@ -27,7 +27,9 @@ data class AxisConfig(
     val labelCount: Int = 5,
     val axisColor: Color = Color.Gray,
     val gridColor: Color = Color.LightGray,
-    val labelTextSize: Float = 16f
+    val labelTextSize: Float = 16f,
+    val axisLabel: String? = null,
+    val labelPosition: LabelPosition = LabelPosition.OUTSIDE
 )
 
 data class CartesianGridConfig(
