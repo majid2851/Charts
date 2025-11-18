@@ -12,6 +12,7 @@ object Strings {
     const val RADAR_CHART = "Radar Chart"
     const val COMPOSED_CHART = "Composed Chart"
     const val RADIAL_BAR_CHART = "Radial Bar Chart"
+    const val TREEMAP_CHART = "TreeMap Chart"
     
     const val LINE_CHART_TITLE = "Line Chart Example"
     const val SIMPLE_LINE_CHART_TITLE = "Simple Line Chart"
@@ -22,6 +23,7 @@ object Strings {
     const val RADAR_CHART_TITLE = "Radar Chart Example"
     const val COMPOSED_CHART_TITLE = "Composed Chart Example"
     const val RADIAL_BAR_CHART_TITLE = "Radial Bar Chart Example"
+    const val TREEMAP_CHART_TITLE = "TreeMap Chart Example"
     
     const val SAMPLE_DESCRIPTION = "Sample chart"
     

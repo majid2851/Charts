@@ -17,6 +17,7 @@ import com.majid2851.charts.ui.components.pie.PieChart
 import com.majid2851.charts.ui.components.radar.RadarChart
 import com.majid2851.charts.ui.components.radialbar.RadialBarChart
 import com.majid2851.charts.ui.components.scatter.ScatterChart
+import com.majid2851.charts.ui.components.treemap.TreeMapChart
 import com.majid2851.charts.ui.theme.AppColors
 import com.majid2851.charts.ui.theme.AppColors.withAlpha
 import com.majid2851.charts.ui.theme.Dimens
@@ -35,7 +36,8 @@ fun ChartDemoScreen(modifier: Modifier = Modifier) {
             Strings.SCATTER_CHART,
             Strings.RADAR_CHART,
             Strings.COMPOSED_CHART,
-            Strings.RADIAL_BAR_CHART
+            Strings.RADIAL_BAR_CHART,
+            Strings.TREEMAP_CHART
         )
     }
 
@@ -123,6 +125,10 @@ fun ChartDemoScreen(modifier: Modifier = Modifier) {
                             )
                             Strings.RADIAL_BAR_CHART -> RadialBarChart(
                                 data = getSampleRadialBarChartData(),
+                                modifier = Modifier.fillMaxSize()
+                            )
+                            Strings.TREEMAP_CHART -> TreeMapChart(
+                                data = getSampleTreeMapData(),
                                 modifier = Modifier.fillMaxSize()
                             )
                         }
@@ -266,7 +272,7 @@ private fun getSampleRadarChartData() = RadarChartData(
             fillColor = AppColors.Blue.withAlpha(0.3f)
         )
     ),
-    domain = Pair(0f, 100f) // Replaced maxValue with domain (min, max)
+    domain = Pair(0f, 100f)
 )
 
 private fun getSampleComposedChartData() = ComposedChartData(
@@ -375,6 +381,60 @@ private fun getSampleRadialBarChartData() = RadialBarChartData(
     ),
     centerX = 0.3f,
     barSize = 14f
+)
+
+private fun getSampleTreeMapData() = TreeMapData(
+    title = Strings.TREEMAP_CHART_TITLE,
+    nodes = listOf(
+        TreeMapNode(
+            name = "axis",
+            children = listOf(
+                TreeMapNode("Axes", size = 1302f),
+                TreeMapNode("Axis", size = 24593f),
+                TreeMapNode("AxisGridLine", size = 652f),
+                TreeMapNode("AxisLabel", size = 636f),
+                TreeMapNode("CartesianAxes", size = 6703f)
+            )
+        ),
+        TreeMapNode(
+            name = "controls",
+            children = listOf(
+                TreeMapNode("AnchorControl", size = 2138f),
+                TreeMapNode("ClickControl", size = 3824f),
+                TreeMapNode("Control", size = 1353f),
+                TreeMapNode("ControlList", size = 4665f),
+                TreeMapNode("DragControl", size = 2649f)
+            )
+        ),
+        TreeMapNode(
+            name = "data",
+            children = listOf(
+                TreeMapNode("Data", size = 20544f),
+                TreeMapNode("DataList", size = 19788f),
+                TreeMapNode("DataSprite", size = 10349f),
+                TreeMapNode("EdgeSprite", size = 3301f)
+            )
+        ),
+        TreeMapNode(
+            name = "events",
+            children = listOf(
+                TreeMapNode("DataEvent", size = 7313f),
+                TreeMapNode("SelectionEvent", size = 6880f),
+                TreeMapNode("TooltipEvent", size = 3701f)
+            )
+        ),
+        TreeMapNode(
+            name = "legend",
+            children = listOf(
+                TreeMapNode("Legend", size = 20859f),
+                TreeMapNode("LegendItem", size = 4614f),
+                TreeMapNode("LegendRange", size = 10530f)
+            )
+        )
+    ),
+    strokeColor = androidx.compose.ui.graphics.Color.White,
+    defaultFill = androidx.compose.ui.graphics.Color(0xFF8884d8),
+    aspectRatio = 4f / 3f
 )
 
 @Preview(showBackground = true)

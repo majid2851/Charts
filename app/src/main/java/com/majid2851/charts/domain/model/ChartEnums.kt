@@ -12,7 +12,8 @@ enum class ChartType {
     SCATTER,
     RADAR,
     COMPOSED,
-    RADIAL_BAR
+    RADIAL_BAR,
+    TREEMAP
 }
 
 enum class PointShape {
