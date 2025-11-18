@@ -11,9 +11,8 @@ enum class ChartType {
     AREA,
     SCATTER,
     RADAR,
-    CANDLESTICK,
-    GAUGE,
-    COMPOSED
+    COMPOSED,
+    RADIAL_BAR
 }
 
 enum class PointShape {

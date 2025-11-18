@@ -35,15 +35,6 @@ object AppColors {
     val RechartsBlue = Color(0xFF8884d8)
     val RechartsGreen = Color(0xFF82ca9d)
     
-    val BullishCandle = Color.Green
-    val BearishCandle = Color.Red
-    
-    val GaugeRangeLow = Color.Red
-    val GaugeRangeMedium = Color.Yellow
-    val GaugeRangeHigh = Color.Green
-    
-    val VolumeBackground = Color.LightGray.copy(alpha = 0.1f)
-    
     fun Color.withAlpha(alpha: Float): Color = this.copy(alpha = alpha)
 }
 

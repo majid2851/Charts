@@ -10,9 +10,8 @@ object Strings {
     const val AREA_CHART = "Area Chart"
     const val SCATTER_CHART = "Scatter Chart"
     const val RADAR_CHART = "Radar Chart"
-    const val CANDLESTICK_CHART = "Candlestick Chart"
-    const val GAUGE_CHART = "Gauge Chart"
     const val COMPOSED_CHART = "Composed Chart"
+    const val RADIAL_BAR_CHART = "Radial Bar Chart"
     
     const val LINE_CHART_TITLE = "Line Chart Example"
     const val SIMPLE_LINE_CHART_TITLE = "Simple Line Chart"
@@ -21,12 +20,10 @@ object Strings {
     const val AREA_CHART_TITLE = "Area Chart Example"
     const val SCATTER_CHART_TITLE = "Scatter Chart Example"
     const val RADAR_CHART_TITLE = "Radar Chart Example"
-    const val CANDLESTICK_CHART_TITLE = "Candlestick Chart Example"
-    const val GAUGE_CHART_TITLE = "Gauge Chart Example"
     const val COMPOSED_CHART_TITLE = "Composed Chart Example"
+    const val RADIAL_BAR_CHART_TITLE = "Radial Bar Chart Example"
     
     const val SAMPLE_DESCRIPTION = "Sample chart"
-    const val FINANCIAL_CHART_DESCRIPTION = "Sample financial chart"
     
     const val SERIES_1 = "Series 1"
     const val SERIES_2 = "Series 2"
@@ -55,17 +52,10 @@ object Strings {
     const val SKILL = "Skill"
     const val ACCURACY = "Accuracy"
     
-    const val RANGE_LOW = "Low"
-    const val RANGE_MEDIUM = "Medium"
-    const val RANGE_HIGH = "High"
-    
-    const val VOLUME = "Volume"
-    
     const val PLACEHOLDER_LINE_COUNT = " line(s)"
     const val PLACEHOLDER_BAR_STYLE = " - "
     const val PLACEHOLDER_PIE_STYLE = " - "
     const val PLACEHOLDER_AREA_MODE = " - "
-    const val PLACEHOLDER_CANDLE_COUNT = " candles"
     const val PLACEHOLDER_RADAR_AXES = " axes"
     
     const val LABEL_PV = "pv"

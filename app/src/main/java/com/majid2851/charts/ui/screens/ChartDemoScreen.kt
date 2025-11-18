@@ -11,12 +11,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.majid2851.charts.domain.model.*
 import com.majid2851.charts.ui.components.area.AreaChart
 import com.majid2851.charts.ui.components.bar.BarChart
-import com.majid2851.charts.ui.components.candlestick.CandlestickChart
 import com.majid2851.charts.ui.components.composed.ComposedChart
-import com.majid2851.charts.ui.components.gauge.GaugeChart
 import com.majid2851.charts.ui.components.line.line_chart.LineChart
 import com.majid2851.charts.ui.components.pie.PieChart
 import com.majid2851.charts.ui.components.radar.RadarChart
+import com.majid2851.charts.ui.components.radialbar.RadialBarChart
 import com.majid2851.charts.ui.components.scatter.ScatterChart
 import com.majid2851.charts.ui.theme.AppColors
 import com.majid2851.charts.ui.theme.AppColors.withAlpha
@@ -35,9 +34,8 @@ fun ChartDemoScreen(modifier: Modifier = Modifier) {
             Strings.AREA_CHART,
             Strings.SCATTER_CHART,
             Strings.RADAR_CHART,
-            Strings.CANDLESTICK_CHART,
-            Strings.GAUGE_CHART,
-            Strings.COMPOSED_CHART
+            Strings.COMPOSED_CHART,
+            Strings.RADIAL_BAR_CHART
         )
     }
 
@@ -119,16 +117,12 @@ fun ChartDemoScreen(modifier: Modifier = Modifier) {
                                 data = getSampleRadarChartData(),
                                 modifier = Modifier.fillMaxSize()
                             )
-                            Strings.CANDLESTICK_CHART -> CandlestickChart(
-                                data = getSampleCandlestickChartData(),
-                                modifier = Modifier.fillMaxSize()
-                            )
-                            Strings.GAUGE_CHART -> GaugeChart(
-                                data = getSampleGaugeChartData(),
-                                modifier = Modifier.fillMaxSize()
-                            )
                             Strings.COMPOSED_CHART -> ComposedChart(
                                 data = getSampleComposedChartData(),
+                                modifier = Modifier.fillMaxSize()
+                            )
+                            Strings.RADIAL_BAR_CHART -> RadialBarChart(
+                                data = getSampleRadialBarChartData(),
                                 modifier = Modifier.fillMaxSize()
                             )
                         }
@@ -275,31 +269,6 @@ private fun getSampleRadarChartData() = RadarChartData(
     domain = Pair(0f, 100f) // Replaced maxValue with domain (min, max)
 )
 
-private fun getSampleCandlestickChartData() = CandlestickChartData(
-    title = Strings.CANDLESTICK_CHART_TITLE,
-    description = Strings.FINANCIAL_CHART_DESCRIPTION,
-    candles = listOf(
-        CandleEntry(1L, 100f, 110f, 95f, 105f),
-        CandleEntry(2L, 105f, 115f, 100f, 110f),
-        CandleEntry(3L, 110f, 120f, 105f, 115f),
-        CandleEntry(4L, 115f, 118f, 108f, 112f),
-        CandleEntry(5L, 112f, 125f, 110f, 120f)
-    )
-)
-
-private fun getSampleGaugeChartData() = GaugeChartData(
-    title = Strings.GAUGE_CHART_TITLE,
-    description = Strings.SAMPLE_DESCRIPTION,
-    currentValue = 65f,
-    minValue = 0f,
-    maxValue = 100f,
-    ranges = listOf(
-        GaugeRange(0f, 33f, AppColors.GaugeRangeLow, Strings.RANGE_LOW),
-        GaugeRange(33f, 66f, AppColors.GaugeRangeMedium, Strings.RANGE_MEDIUM),
-        GaugeRange(66f, 100f, AppColors.GaugeRangeHigh, Strings.RANGE_HIGH)
-    )
-)
-
 private fun getSampleComposedChartData() = ComposedChartData(
     title = Strings.COMPOSED_CHART_TITLE,
     categories = listOf(
@@ -358,6 +327,54 @@ private fun getSampleComposedChartData() = ComposedChartData(
         showAxis = true,
         showLegend = true
     )
+)
+
+private fun getSampleRadialBarChartData() = RadialBarChartData(
+    title = Strings.RADIAL_BAR_CHART_TITLE,
+    bars = listOf(
+        RadialBarEntry(
+            name = "18-24",
+            value = 31.47f,
+            fill = androidx.compose.ui.graphics.Color(0xFF8884d8)
+        ),
+        RadialBarEntry(
+            name = "25-29",
+            value = 26.69f,
+            fill = androidx.compose.ui.graphics.Color(0xFF83a6ed)
+        ),
+        RadialBarEntry(
+            name = "30-34",
+            value = 15.69f,
+            fill = androidx.compose.ui.graphics.Color(0xFF8dd1e1)
+        ),
+        RadialBarEntry(
+            name = "35-39",
+            value = 8.22f,
+            fill = androidx.compose.ui.graphics.Color(0xFF82ca9d)
+        ),
+        RadialBarEntry(
+            name = "40-49",
+            value = 8.63f,
+            fill = androidx.compose.ui.graphics.Color(0xFFa4de6c)
+        ),
+        RadialBarEntry(
+            name = "50+",
+            value = 2.63f,
+            fill = androidx.compose.ui.graphics.Color(0xFFd0ed57)
+        ),
+        RadialBarEntry(
+            name = "unknown",
+            value = 6.67f,
+            fill = androidx.compose.ui.graphics.Color(0xFFffc658)
+        )
+    ),
+    config = ChartConfig(
+        showLegend = true,
+        showGrid = false,
+        showAxis = false
+    ),
+    centerX = 0.3f,
+    barSize = 14f
 )
 
 @Preview(showBackground = true)

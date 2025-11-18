@@ -48,8 +48,5 @@ object Dimens {
     val chartHeightLarge: Dp = 400.dp
     val previewChartHeight: Dp = 300.dp
     val previewChartWidth: Dp = 400.dp
-    
-    // Font sizes (Float values for canvas drawing)
-    val gaugeValueFontSize: Float = 32f
 }
 
