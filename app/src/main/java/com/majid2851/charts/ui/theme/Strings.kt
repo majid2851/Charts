@@ -5,14 +5,22 @@ object Strings {
     const val SELECT_CHART_TYPE = "Select Chart Type"
     
     const val LINE_CHART = "Line Chart"
+    const val LINE_CHART_VARIANTS = "Line Chart Variants"
     const val BAR_CHART = "Bar Chart"
+    const val BAR_CHART_VARIANTS = "Bar Chart Variants"
     const val PIE_CHART = "Pie Chart"
+    const val PIE_CHART_VARIANTS = "Pie Chart Variants"
     const val AREA_CHART = "Area Chart"
+    const val AREA_CHART_VARIANTS = "Area Chart Variants"
     const val SCATTER_CHART = "Scatter Chart"
+    const val SCATTER_CHART_VARIANTS = "Scatter Chart Variants"
     const val RADAR_CHART = "Radar Chart"
+    const val RADAR_CHART_VARIANTS = "Radar Chart Variants"
     const val COMPOSED_CHART = "Composed Chart"
+    const val COMPOSED_CHART_VARIANTS = "Composed Chart Variants"
     const val RADIAL_BAR_CHART = "Radial Bar Chart"
     const val TREEMAP_CHART = "TreeMap Chart"
+    const val TREEMAP_CHART_VARIANTS = "TreeMap Variants"
     const val RESPONSIVE_CHARTS = "Responsive Charts"
     
     const val LINE_CHART_TITLE = "Line Chart Example"
@@ -26,6 +34,7 @@ object Strings {
     const val RADIAL_BAR_CHART_TITLE = "Radial Bar Chart Example"
     const val TREEMAP_CHART_TITLE = "TreeMap Chart Example"
     const val RESPONSIVE_CHARTS_TITLE = "Responsive Container Examples"
+    const val BAR_CHART_VARIANTS_TITLE = "Bar Chart Variants Examples"
     
     const val SAMPLE_DESCRIPTION = "Sample chart"
     

@@ -18,7 +18,7 @@ import com.majid2851.charts.ui.components.radar.RadarChart
 import com.majid2851.charts.ui.components.radialbar.RadialBarChart
 import com.majid2851.charts.ui.components.scatter.ScatterChart
 import com.majid2851.charts.ui.components.treemap.TreeMapChart
-import com.majid2851.charts.ui.screens.ResponsiveChartsScreen
+import com.majid2851.charts.ui.screens.*
 import com.majid2851.charts.ui.theme.AppColors
 import com.majid2851.charts.ui.theme.AppColors.withAlpha
 import com.majid2851.charts.ui.theme.Dimens
@@ -30,15 +30,15 @@ import com.majid2851.charts.ui.theme.ChartsTheme
 fun ChartDemoScreen(modifier: Modifier = Modifier) {
     val chartTypes = remember {
         listOf(
-            Strings.LINE_CHART,
-            Strings.BAR_CHART,
-            Strings.PIE_CHART,
-            Strings.AREA_CHART,
-            Strings.SCATTER_CHART,
-            Strings.RADAR_CHART,
-            Strings.COMPOSED_CHART,
+            Strings.LINE_CHART_VARIANTS,
+            Strings.BAR_CHART_VARIANTS,
+            Strings.PIE_CHART_VARIANTS,
+            Strings.AREA_CHART_VARIANTS,
+            Strings.SCATTER_CHART_VARIANTS,
+            Strings.RADAR_CHART_VARIANTS,
+            Strings.COMPOSED_CHART_VARIANTS,
             Strings.RADIAL_BAR_CHART,
-            Strings.TREEMAP_CHART,
+            Strings.TREEMAP_CHART_VARIANTS,
             Strings.RESPONSIVE_CHARTS
         )
     }
@@ -97,40 +97,32 @@ fun ChartDemoScreen(modifier: Modifier = Modifier) {
                         elevation = CardDefaults.cardElevation(defaultElevation = Dimens.cardElevation)
                     ) {
                         when (selectedChart) {
-                            Strings.LINE_CHART -> LineChart(
-                                data = getSampleLineChartData(),
+                            Strings.LINE_CHART_VARIANTS -> LineChartVariantsScreen(
                                 modifier = Modifier.fillMaxSize()
                             )
-                            Strings.BAR_CHART -> BarChart(
-                                data = getSampleBarChartData(),
+                            Strings.BAR_CHART_VARIANTS -> BarChartVariantsScreen(
                                 modifier = Modifier.fillMaxSize()
                             )
-                            Strings.PIE_CHART -> PieChart(
-                                data = getSamplePieChartData(),
+                            Strings.PIE_CHART_VARIANTS -> PieChartVariantsScreen(
                                 modifier = Modifier.fillMaxSize()
                             )
-                            Strings.AREA_CHART -> AreaChart(
-                                data = getSampleAreaChartData(),
+                            Strings.AREA_CHART_VARIANTS -> AreaChartVariantsScreen(
                                 modifier = Modifier.fillMaxSize()
                             )
-                            Strings.SCATTER_CHART -> ScatterChart(
-                                data = getSampleScatterChartData(),
+                            Strings.SCATTER_CHART_VARIANTS -> ScatterChartVariantsScreen(
                                 modifier = Modifier.fillMaxSize()
                             )
-                            Strings.RADAR_CHART -> RadarChart(
-                                data = getSampleRadarChartData(),
+                            Strings.RADAR_CHART_VARIANTS -> RadarChartVariantsScreen(
                                 modifier = Modifier.fillMaxSize()
                             )
-                            Strings.COMPOSED_CHART -> ComposedChart(
-                                data = getSampleComposedChartData(),
+                            Strings.COMPOSED_CHART_VARIANTS -> ComposedChartVariantsScreen(
                                 modifier = Modifier.fillMaxSize()
                             )
                             Strings.RADIAL_BAR_CHART -> RadialBarChart(
                                 data = getSampleRadialBarChartData(),
                                 modifier = Modifier.fillMaxSize()
                             )
-                            Strings.TREEMAP_CHART -> TreeMapChart(
-                                data = getSampleTreeMapData(),
+                            Strings.TREEMAP_CHART_VARIANTS -> TreeMapVariantsScreen(
                                 modifier = Modifier.fillMaxSize()
                             )
                             Strings.RESPONSIVE_CHARTS -> ResponsiveChartsScreen(
