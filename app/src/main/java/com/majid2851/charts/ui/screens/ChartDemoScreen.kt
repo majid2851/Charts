@@ -18,6 +18,7 @@ import com.majid2851.charts.ui.components.radar.RadarChart
 import com.majid2851.charts.ui.components.radialbar.RadialBarChart
 import com.majid2851.charts.ui.components.scatter.ScatterChart
 import com.majid2851.charts.ui.components.treemap.TreeMapChart
+import com.majid2851.charts.ui.screens.ResponsiveChartsScreen
 import com.majid2851.charts.ui.theme.AppColors
 import com.majid2851.charts.ui.theme.AppColors.withAlpha
 import com.majid2851.charts.ui.theme.Dimens
@@ -37,7 +38,8 @@ fun ChartDemoScreen(modifier: Modifier = Modifier) {
             Strings.RADAR_CHART,
             Strings.COMPOSED_CHART,
             Strings.RADIAL_BAR_CHART,
-            Strings.TREEMAP_CHART
+            Strings.TREEMAP_CHART,
+            Strings.RESPONSIVE_CHARTS
         )
     }
 
@@ -129,6 +131,9 @@ fun ChartDemoScreen(modifier: Modifier = Modifier) {
                             )
                             Strings.TREEMAP_CHART -> TreeMapChart(
                                 data = getSampleTreeMapData(),
+                                modifier = Modifier.fillMaxSize()
+                            )
+                            Strings.RESPONSIVE_CHARTS -> ResponsiveChartsScreen(
                                 modifier = Modifier.fillMaxSize()
                             )
                         }
