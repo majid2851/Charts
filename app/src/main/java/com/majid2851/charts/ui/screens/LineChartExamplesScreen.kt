@@ -21,10 +21,6 @@ import com.majid2851.charts.ui.components.line.line_chart_types.TinyLineChart
 import com.majid2851.charts.ui.theme.ChartsTheme
 import com.majid2851.charts.ui.theme.Dimens
 
-/**
- * Screen showcasing all LineChart variants inspired by Recharts
- * Reference: https://recharts.github.io/en-US/examples
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LineChartExamplesScreen(modifier: Modifier = Modifier) {
@@ -96,9 +92,12 @@ fun LineChartExamplesScreen(modifier: Modifier = Modifier) {
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(Dimens.cardHeight),
-                        elevation = CardDefaults.cardElevation(defaultElevation = Dimens.cardElevation)
+                        elevation = CardDefaults
+                            .cardElevation(defaultElevation = Dimens.cardElevation)
                     ) {
-                        Box(modifier = Modifier.fillMaxSize().padding(Dimens.paddingSmall)) {
+                        Box(modifier = Modifier.fillMaxSize()
+                            .padding(Dimens.paddingSmall))
+                        {
                             when (selectedChart) {
                                 "Simple Line Chart" -> SimpleLineChart()
                                 "Tiny Line Chart" -> TinyLineChart()
@@ -120,7 +119,6 @@ fun LineChartExamplesScreen(modifier: Modifier = Modifier) {
                     Spacer(modifier = Modifier.height(Dimens.spacerHeight))
                 }
 
-                // Description section
                 item {
                     Card(
                         modifier = Modifier
@@ -174,6 +172,8 @@ private fun LineChartExamplesScreenPreview() {
         LineChartExamplesScreen()
     }
 }
+
+
 
 
 

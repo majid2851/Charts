@@ -48,13 +48,6 @@ fun LineChart(
             .background(data.config.backgroundColor)
             .padding(data.config.chartPadding)
     ) {
-        data.title?.let {
-            Text(
-                text = it,
-                fontSize = FontSizes.titleLarge,
-                modifier = Modifier.padding(bottom = Dimens.paddingSmall)
-            )
-        }
 
         Box(
             modifier = Modifier
@@ -150,16 +143,12 @@ fun LineChart(
                                         )
                                     }
                                 },
-                                onDragEnd = {
-                                    // Keep the selection visible after drag ends
-                                    // Optionally clear it: selectedPoint = null
-                                }
+                                onDragEnd = {}
                             )
                         }
                     }
                     .pointerInput(data.config.isInteractive) {
                         if (data.config.isInteractive) {
-                            // Handle tap gestures for quick selection
                             detectTapGestures(
                                 onTap = { offset ->
                                     val padding = 40f

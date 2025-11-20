@@ -1,19 +1,32 @@
-# Charts Library - Android
+# 📊 Compose Charts Library
 
-A comprehensive, customizable charts library for Android built with **Jetpack Compose**, **MVI architecture**, and **Clean Architecture** principles.
+A comprehensive, production-ready charting library for Jetpack Compose with 9+ chart types and 50+ pre-built variants.
+
+[![](https://img.shields.io/badge/Compose-1.5.1-blue.svg)](https://developer.android.com/jetpack/compose)
+[![](https://img.shields.io/badge/Kotlin-1.9+-purple.svg)](https://kotlinlang.org/)
+[![](https://img.shields.io/badge/minSdk-24-green.svg)](https://developer.android.com/studio/releases/platforms)
+[![](https://img.shields.io/badge/License-Apache%202.0-orange.svg)](LICENSE)
+
+## 🎯 Project Structure
+
+This repository contains:
+
+- **`charts-library/`** - The reusable charting library for developers
+- **`app/`** - Demo application with 50+ chart examples
 
 ## 📊 Chart Types
 
-The library includes 8 different chart types:
+The library includes 9 different chart types with multiple variants:
 
-1. **Line Chart** - Display trends and data over time
-2. **Bar Chart** - Compare categorical data (Vertical/Horizontal, Grouped/Stacked)
-3. **Pie Chart** - Show proportions (Pie, Donut, Semi-circle)
-4. **Area Chart** - Visualize volume over time (Standard, Stacked, Percentage)
-5. **Scatter Chart** - Display correlation and distribution (including Bubble charts)
-6. **Radar Chart** - Show multi-dimensional data (Spider chart)
-7. **Candlestick Chart** - Financial data visualization (OHLC)
-8. **Gauge Chart** - Display KPIs and metrics (Semi-circle, Full-circle, Linear)
+1. **Line Chart** (10+ variants) - Trends, multi-series, curved lines, area fill, zoom/pan
+2. **Bar Chart** (6+ variants) - Grouped, stacked, horizontal, biaxial
+3. **Pie Chart** (3+ variants) - Standard pie, donut, two-level hierarchical
+4. **Area Chart** (9+ variants) - Stacked, percent, smooth curves
+5. **Scatter Chart** (6+ variants) - Bubble charts, 3D effects, with labels
+6. **Radar Chart** (2+ variants) - Multi-dimensional data visualization
+7. **Composed Chart** (8+ variants) - Combine multiple chart types
+8. **Radial Bar Chart** - Circular progress and metrics
+9. **TreeMap** - Hierarchical data visualization
 
 ## 🏗️ Architecture
 
@@ -129,33 +142,75 @@ class ChartViewModel : MviViewModel<State, Intent, Effect>(State()) {
 - ⏳ Custom colors & themes
 - ⏳ Export to image
 
-## 🚀 Usage
+## 📦 Installation
 
-### Basic Example - Line Chart
+### Option 1: JitPack (Recommended)
+
+Add JitPack repository to your `settings.gradle.kts`:
 
 ```kotlin
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+```
+
+Add the dependency:
+
+```kotlin
+dependencies {
+    implementation("com.github.majid2851:charts:1.0.0")
+}
+```
+
+### Option 2: Local Maven (Testing)
+
+```bash
+./gradlew :charts-library:publishToMavenLocal
+```
+
+```kotlin
+repositories {
+    mavenLocal()
+}
+dependencies {
+    implementation("com.majid2851:compose-charts:1.0.0")
+}
+```
+
+## 🚀 Quick Start
+
+### Simple Line Chart
+
+```kotlin
+import com.majid2851.charts.ui.components.line.line_chart.LineChart
+import com.majid2851.charts.domain.model.LineChartData
+import com.majid2851.charts.domain.model.LineDataSet
+import com.majid2851.charts.domain.model.DataPoint
+
 @Composable
-fun MyScreen() {
-    val lineChartData = LineChartData(
-        title = "Sales Over Time",
-        lines = listOf(
-            LineDataSet(
-                label = "Revenue",
-                dataPoints = listOf(
-                    DataPoint(0f, 100f),
-                    DataPoint(1f, 150f),
-                    DataPoint(2f, 120f),
-                    DataPoint(3f, 180f)
-                ),
-                lineColor = Color.Blue,
-                isCurved = true,
-                fillArea = true
-            )
-        )
-    )
-    
+fun MyChart() {
     LineChart(
-        data = lineChartData,
+        data = LineChartData(
+            lines = listOf(
+                LineDataSet(
+                    label = "Sales",
+                    dataPoints = listOf(
+                        DataPoint(x = 0f, y = 100f),
+                        DataPoint(x = 1f, y = 200f),
+                        DataPoint(x = 2f, y = 150f),
+                        DataPoint(x = 3f, y = 300f)
+                    ),
+                    lineColor = Color(0xFF8884d8),
+                    isCurved = true,
+                    fillArea = true
+                )
+            ),
+            xAxisLabels = listOf("Jan", "Feb", "Mar", "Apr")
+        ),
         modifier = Modifier
             .fillMaxWidth()
             .height(300.dp)
@@ -163,22 +218,59 @@ fun MyScreen() {
 }
 ```
 
-### Using with ViewModel (MVI)
+### Bar Chart
 
 ```kotlin
+import com.majid2851.charts.ui.components.bar.BarChart
+import com.majid2851.charts.domain.model.BarChartData
+import com.majid2851.charts.domain.model.BarDataSet
+
 @Composable
-fun ChartScreen(viewModel: LineChartViewModel = viewModel()) {
-    val state by viewModel.state.collectAsState()
-    
-    LaunchedEffect(Unit) {
-        viewModel.handleIntent(
-            LineChartContract.Intent.LoadChartData(sampleData)
-        )
-    }
-    
-    state.chartData?.let { data ->
-        LineChart(data = data)
-    }
+fun MyBarChart() {
+    BarChart(
+        data = BarChartData(
+            categories = listOf("Q1", "Q2", "Q3", "Q4"),
+            datasets = listOf(
+                BarDataSet(
+                    label = "Revenue",
+                    dataPoints = listOf(
+                        DataPoint(x = 0f, y = 4000f),
+                        DataPoint(x = 1f, y = 3000f),
+                        DataPoint(x = 2f, y = 2000f),
+                        DataPoint(x = 3f, y = 2780f)
+                    ),
+                    color = Color(0xFF8884d8)
+                )
+            )
+        ),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(300.dp)
+    )
+}
+```
+
+### Pie Chart
+
+```kotlin
+import com.majid2851.charts.ui.components.pie.PieChart
+import com.majid2851.charts.domain.model.PieChartData
+import com.majid2851.charts.domain.model.PieSlice
+
+@Composable
+fun MyPieChart() {
+    PieChart(
+        data = PieChartData(
+            slices = listOf(
+                PieSlice(name = "A", value = 400f, color = Color(0xFF0088FE)),
+                PieSlice(name = "B", value = 300f, color = Color(0xFF00C49F)),
+                PieSlice(name = "C", value = 300f, color = Color(0xFFFFBB28)),
+                PieSlice(name = "D", value = 200f, color = Color(0xFFFF8042))
+            ),
+            config = PieChartConfig(showLabels = true)
+        ),
+        modifier = Modifier.size(300.dp)
+    )
 }
 ```
 
@@ -238,56 +330,99 @@ implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.4")
 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 ```
 
-## 📝 Implementation Status
+## ✨ Features
 
-### ✅ Completed
-- [x] Project structure setup
-- [x] Domain layer (all chart data models)
-- [x] Presentation layer (MVI base + all ViewModels)
-- [x] UI layer (all chart component skeletons)
-- [x] Demo screen with all chart types
-- [x] Clean Architecture implementation
-- [x] MVI pattern implementation
+### Core Features
+- ✅ **9 Chart Types** - Line, Bar, Pie, Area, Scatter, Radar, Composed, Radial Bar, TreeMap
+- ✅ **50+ Variants** - Pre-configured examples for common use cases
+- ✅ **Jetpack Compose** - Modern declarative UI
+- ✅ **Material 3 Support** - Follow Material Design guidelines
+- ✅ **Highly Customizable** - Fine-grained control over every aspect
+- ✅ **Responsive Design** - Automatic adaptation to screen sizes
+- ✅ **Performance Optimized** - Efficient Canvas-based rendering
+- ✅ **Interactive Features** - Zoom, pan, tap interactions, crosshair
+- ✅ **Complex Compositions** - Combine multiple chart types in one view
+- ✅ **Rich Styling** - Colors, gradients, patterns, and more
 
-### 🚧 To Be Implemented
-- [ ] Actual chart drawing logic (Canvas drawing)
-- [ ] Touch gesture handling
-- [ ] Animation implementations
-- [ ] Legend components
-- [ ] Axis rendering
-- [ ] Grid rendering
-- [ ] Label rendering
-- [ ] Data point highlighting
-- [ ] Zoom and pan functionality
-- [ ] Export functionality
-- [ ] Unit tests
-- [ ] Integration tests
-- [ ] Documentation
-- [ ] Sample apps
+### Interactive Features
+- ✅ Zoom and pan gestures (Line Chart)
+- ✅ Tap to highlight data points
+- ✅ Crosshair for precise value reading
+- ✅ Multi-point selection
+- ✅ Drag to show vertical line
+- ✅ Touch interactions across all charts
 
-## 🎯 Next Steps
+### Visualization Features
+- ✅ Curved lines (Bézier interpolation)
+- ✅ Dashed lines
+- ✅ Area fills with gradients
+- ✅ Stacked charts (Bar, Area)
+- ✅ Grouped charts (Bar)
+- ✅ Reference lines
+- ✅ Custom grid patterns
+- ✅ Negative value support
+- ✅ Connect nulls option
+- ✅ Custom point shapes and sizes
 
-1. **Implement Line Chart Drawing**
-   - Draw axes and grid
-   - Draw line paths
-   - Add point markers
-   - Implement curved lines
+## 📚 Documentation
 
-2. **Add Touch Interactions**
-   - Pan gesture
-   - Zoom gesture
-   - Tap to select data points
+- **[charts-library/README.md](charts-library/README.md)** - Complete library documentation
+- **[charts-library/API.md](charts-library/API.md)** - Full API reference
+- **[charts-library/QUICK_START.md](charts-library/QUICK_START.md)** - Get started in minutes
+- **[LIBRARY_PUBLISHING_GUIDE.md](LIBRARY_PUBLISHING_GUIDE.md)** - How to publish the library
 
-3. **Implement Animations**
-   - Entry animations
-   - Update animations
-   - Gesture animations
+## 🎯 Demo App
 
-4. **Add Remaining Features**
-   - Legend rendering
-   - Tooltips
-   - Data labels
-   - Export functionality
+The `app/` module contains a comprehensive demo with:
+- **50+ chart variants** across all chart types
+- **Interactive examples** showing zoom, pan, and tap features
+- **Customization demos** for colors, styles, and configurations
+- **Responsive examples** showing adaptive layouts
+- **Best practices** and recommended patterns
+
+Run the demo app to explore all features:
+
+```bash
+./gradlew :app:installDebug
+```
+
+## 🚀 For Library Users
+
+### Installation
+See [Installation](#installation) section above.
+
+### Quick Start
+See [Quick Start](#quick-start) section above.
+
+### Full Documentation
+Read the complete documentation in [charts-library/README.md](charts-library/README.md).
+
+### API Reference
+Browse the API documentation in [charts-library/API.md](charts-library/API.md).
+
+## 🔧 For Library Developers
+
+### Building the Library
+
+```bash
+# Build the library
+./gradlew :charts-library:build
+
+# Run tests
+./gradlew :charts-library:test
+
+# Publish to local Maven
+./gradlew :charts-library:publishToMavenLocal
+```
+
+### Publishing
+
+See [LIBRARY_PUBLISHING_GUIDE.md](LIBRARY_PUBLISHING_GUIDE.md) for detailed instructions on:
+- Publishing to JitPack
+- Publishing to GitHub Packages
+- Publishing to Maven Central
+- Version management
+- CI/CD automation
 
 ## 📄 License
 

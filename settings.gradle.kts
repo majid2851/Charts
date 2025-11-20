@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Charts"
 include(":app")
- 
+include(":charts-library")
