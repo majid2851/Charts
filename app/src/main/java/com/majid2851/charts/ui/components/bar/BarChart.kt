@@ -40,16 +40,7 @@ fun BarChart(
             .background(data.config.backgroundColor)
             .padding(data.config.chartPadding)
     ) {
-        // Title
-        data.title?.let {
-            Text(
-                text = it,
-                fontSize = FontSizes.titleLarge,
-                modifier = Modifier.padding(bottom = Dimens.paddingSmall)
-            )
-        }
 
-        // Chart Canvas
         Canvas(
             modifier = Modifier
                 .weight(1f)
@@ -140,16 +131,19 @@ fun BarChart(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = Dimens.legendTopPadding),
-                horizontalArrangement = Arrangement.spacedBy(Dimens.legendItemSpacing)
+                    .padding(top = Dimens.paddingSmall),
+                horizontalArrangement = Arrangement.Center,
             ) {
                 data.bars.forEach { bar ->
                     Row(
-                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                        modifier=Modifier
+                            .padding(Dimens.paddingSmall),
+                        horizontalArrangement = Arrangement.Center,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Box(
                             modifier = Modifier
+                                .padding(Dimens.paddingSmall)
                                 .size(12.dp)
                                 .background(bar.barColor)
                         )
