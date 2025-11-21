@@ -61,7 +61,7 @@ fun BarChartVariantsScreen(modifier: Modifier = Modifier) {
                     title = "Stacked Bar Chart",
                     description = "Bars stacked on top of each other"
                 ) {
-                    StackedBarChart(modifier = Modifier.fillMaxWidth().height(300.dp))
+                    StackedBarChart(modifier = Modifier)
                 }
             }
             
@@ -71,7 +71,7 @@ fun BarChartVariantsScreen(modifier: Modifier = Modifier) {
                     title = "Mix Bar Chart",
                     description = "Combination of stacked and grouped bars"
                 ) {
-                    MixBarChart(modifier = Modifier.fillMaxWidth().height(300.dp))
+                    MixBarChart(modifier = Modifier)
                 }
             }
             

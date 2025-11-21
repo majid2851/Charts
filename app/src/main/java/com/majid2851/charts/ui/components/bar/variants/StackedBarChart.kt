@@ -1,6 +1,7 @@
 package com.majid2851.charts.ui.components.bar.variants
 
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -8,18 +9,42 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.majid2851.charts.domain.model.*
 import com.majid2851.charts.ui.components.bar.BarChart
+import androidx.compose.ui.unit.Dp
+import com.majid2851.charts.ui.theme.Dimens
 
-/**
- * Stacked Bar Chart
- * Matches Recharts stacked bar chart - bars stack on top of each other
- */
 @Composable
 fun StackedBarChart(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    bars: List<BarDataSet> = getStackedBarChartData().bars,
+    title: String = "Stacked Bar Chart",
+    showGrid: Boolean = true,
+    showAxis: Boolean = true,
+    showLegend: Boolean = true,
+    chartPadding: Dp = 20.dp,
+    height: Dp = Dimens.chartHeightLarge,
+    animationEnabled: Boolean = true,
+    isInteractive: Boolean = true
 ) {
     BarChart(
-        data = getStackedBarChartData(),
+        data = BarChartData(
+            title = title,
+            bars = bars,
+            groupingMode = BarGroupingMode.STACKED,
+            config = ChartConfig(
+                showGrid = showGrid,
+                showAxis = showAxis,
+                showLegend = showLegend,
+                animationEnabled = animationEnabled,
+                isInteractive = isInteractive,
+                chartPadding = chartPadding,
+                cartesianGrid = CartesianGridConfig(
+                    horizontalDashPattern = floatArrayOf(3f,3f),
+                    verticalDashPattern   = floatArrayOf(3f,3f)
+                )
+            )
+        ),
         modifier = modifier
+            .height(height)
     )
 }
 

@@ -143,9 +143,10 @@ fun BarChart(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = Dimens.legendTopPadding),
-                horizontalArrangement = Arrangement.spacedBy(Dimens.legendItemSpacing)
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                data.bars.forEach { bar ->
+                data.bars.forEachIndexed { index, bar ->
                     Row(
                         horizontalArrangement = Arrangement.spacedBy(4.dp),
                         verticalAlignment = Alignment.CenterVertically
@@ -159,6 +160,9 @@ fun BarChart(
                             text = bar.label,
                             fontSize = FontSizes.bodySmall
                         )
+                    }
+                    if (index != data.bars.lastIndex) {
+                        Spacer(modifier = Modifier.width(Dimens.legendItemSpacing))
                     }
                 }
             }

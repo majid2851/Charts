@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.majid2851.charts.domain.model.*
 import com.majid2851.charts.ui.components.bar.BarChart
@@ -17,13 +18,16 @@ import com.majid2851.charts.ui.components.bar.BarChart
  */
 @Composable
 fun TinyBarChart(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    width: Dp = 300.dp,
+    height: Dp = 100.dp,
+    data: BarChartData = getTinyBarChartData()
 ) {
     BarChart(
-        data = getTinyBarChartData(),
+        data = data,
         modifier = modifier
-            .width(300.dp)
-            .height(100.dp)
+            .width(width)
+            .height(height)
     )
 }
 
