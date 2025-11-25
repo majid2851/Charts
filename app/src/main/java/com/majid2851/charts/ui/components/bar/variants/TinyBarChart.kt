@@ -17,44 +17,60 @@ import com.majid2851.charts.ui.theme.Dimens
 fun TinyBarChart(
     modifier: Modifier = Modifier,
     width: Dp = Dimens.previewChartWidth,
-    height: Dp =Dimens.chartHeightLarge,
-    data: BarChartData = getTinyBarChartData()
+    height: Dp = Dimens.chartHeightLarge,
+    title: String? = null,
+    bars: List<BarDataSet> = getDefaultTinyBarData(),
+    groupingMode: BarGroupingMode = BarGroupingMode.GROUPED,
+    showGrid: Boolean = false,
+    showAxis: Boolean = false,
+    showLegend: Boolean = false,
+    chartPadding: Dp = 0.dp,
+    backgroundColor: Color = Color.White,
+    animationEnabled: Boolean = true,
+    isInteractive: Boolean = false
 ) {
     BarChart(
-        data = data,
-        modifier = modifier
-            .width(width)
-            .height(height)
+        data = BarChartData(
+            title = title,
+            bars = bars,
+            groupingMode = groupingMode,
+            config = ChartConfig(
+                showGrid = showGrid,
+                showAxis = showAxis,
+                showLegend = showLegend,
+                chartPadding = chartPadding,
+                backgroundColor = backgroundColor,
+                animationEnabled = animationEnabled,
+                isInteractive = isInteractive
+            )
+        ),
+        modifier = if (modifier == Modifier) {
+            Modifier.width(width).height(height)
+        } else {
+            modifier
+        }
     )
 }
 
-private fun getTinyBarChartData() = BarChartData(
-    bars = listOf(
-        BarDataSet(
-            label = "uv",
-            entries = listOf(
-                LabeledEntry("Page A", 4000f),
-                LabeledEntry("Page B", 3000f),
-                LabeledEntry("Page C", 2000f),
-                LabeledEntry("Page D", 2780f),
-                LabeledEntry("Page E", 1890f),
-                LabeledEntry("Page F", 2390f),
-                LabeledEntry("Page G", 3490f)
-            ),
-            barColor = Color(0xFF8884d8)
-        )
-    ),
-    config = ChartConfig(
-        showGrid = false,
-        showAxis = false,
-        showLegend = false,
-        chartPadding = 0.dp
+private fun getDefaultTinyBarData() = listOf(
+    BarDataSet(
+        label = "uv",
+        entries = listOf(
+            LabeledEntry("Page A", 4000f),
+            LabeledEntry("Page B", 3000f),
+            LabeledEntry("Page C", 2000f),
+            LabeledEntry("Page D", 2780f),
+            LabeledEntry("Page E", 1890f),
+            LabeledEntry("Page F", 2390f),
+            LabeledEntry("Page G", 3490f)
+        ),
+        barColor = Color(0xFF8884d8)
     )
 )
 
 @Preview(showBackground = true)
 @Composable
 private fun TinyBarChartPreview() {
-    TinyBarChart(modifier = Modifier.fillMaxSize())
+    TinyBarChart()
 }
 

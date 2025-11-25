@@ -15,10 +15,6 @@ import com.majid2851.charts.domain.model.RadialBarEntry
 import com.majid2851.charts.ui.components.radialbar.RadialBarChart
 import com.majid2851.charts.ui.theme.Dimens
 
-/**
- * Simple Radial Bar Chart
- * Matches the Recharts example with age distribution data
- */
 @Composable
 fun SimpleRadialBarChart(
     modifier: Modifier = Modifier,

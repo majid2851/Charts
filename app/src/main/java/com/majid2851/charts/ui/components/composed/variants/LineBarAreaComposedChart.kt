@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.majid2851.charts.domain.model.*
@@ -123,4 +124,10 @@ private fun getDefaultScatterDataSets() = listOf(
         pointSize = 6f
     )
 )
+
+@Preview(showBackground = true)
+@Composable
+private fun LineBarAreaComposedChartPreview() {
+    LineBarAreaComposedChart()
+}
 

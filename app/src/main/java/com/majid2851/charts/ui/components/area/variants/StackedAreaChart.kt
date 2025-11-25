@@ -61,13 +61,13 @@ private fun getStackedAreaChartData() = AreaChartData(
         AreaDataSet(
             label = "UV",
             dataPoints = listOf(
-                DataPoint(0f, 4000f, "Page A"),
-                DataPoint(1f, 3000f, "Page B"),
-                DataPoint(2f, 2000f, "Page C"),
-                DataPoint(3f, 2780f, "Page D"),
-                DataPoint(4f, 1890f, "Page E"),
-                DataPoint(5f, 2390f, "Page F"),
-                DataPoint(6f, 3490f, "Page G")
+                DataPoint(0f, 40f, "Page A"),
+                DataPoint(1f, 30f, "Page B"),
+                DataPoint(2f, 25f, "Page C"),
+                DataPoint(3f, 16f, "Page D"),
+                DataPoint(4f, 19f, "Page E"),
+                DataPoint(5f, 20f, "Page F"),
+                DataPoint(6f, 34f, "Page G")
             ),
             lineColor = Color(0xFF8884d8),
             fillColor = Color(0xFF8884d8).copy(alpha = 0.8f),
@@ -77,13 +77,13 @@ private fun getStackedAreaChartData() = AreaChartData(
         AreaDataSet(
             label = "PV",
             dataPoints = listOf(
-                DataPoint(0f, 2400f, "Page A"),
-                DataPoint(1f, 1398f, "Page B"),
-                DataPoint(2f, 9800f, "Page C"),
-                DataPoint(3f, 3908f, "Page D"),
-                DataPoint(4f, 4800f, "Page E"),
-                DataPoint(5f, 3800f, "Page F"),
-                DataPoint(6f, 4300f, "Page G")
+                DataPoint(0f, 24f, "Page A"),
+                DataPoint(1f, 13f, "Page B"),
+                DataPoint(2f, 98f, "Page C"),
+                DataPoint(3f, 39f, "Page D"),
+                DataPoint(4f, 48f, "Page E"),
+                DataPoint(5f, 38f, "Page F"),
+                DataPoint(6f, 43f, "Page G")
             ),
             lineColor = Color(0xFF82ca9d),
             fillColor = Color(0xFF82ca9d).copy(alpha = 0.8f),
@@ -93,13 +93,13 @@ private fun getStackedAreaChartData() = AreaChartData(
         AreaDataSet(
             label = "AMT",
             dataPoints = listOf(
-                DataPoint(0f, 2400f, "Page A"),
-                DataPoint(1f, 2210f, "Page B"),
-                DataPoint(2f, 2290f, "Page C"),
-                DataPoint(3f, 2000f, "Page D"),
-                DataPoint(4f, 2181f, "Page E"),
-                DataPoint(5f, 2500f, "Page F"),
-                DataPoint(6f, 2100f, "Page G")
+                DataPoint(0f, 24f, "Page A"),
+                DataPoint(1f, 22f, "Page B"),
+                DataPoint(2f, 22f, "Page C"),
+                DataPoint(3f, 20f, "Page D"),
+                DataPoint(4f, 21f, "Page E"),
+                DataPoint(5f, 25f, "Page F"),
+                DataPoint(6f, 21f, "Page G")
             ),
             lineColor = Color(0xFFffc658),
             fillColor = Color(0xFFffc658).copy(alpha = 0.8f),

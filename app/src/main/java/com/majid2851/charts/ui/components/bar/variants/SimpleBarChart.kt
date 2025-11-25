@@ -98,3 +98,9 @@ private fun getSimpleBarChartData() = BarChartData(
     )
 )
 
+@Preview(showBackground = true)
+@Composable
+private fun SimpleBarChartPreview() {
+    SimpleBarChart()
+}
+

@@ -106,9 +106,9 @@ private fun getMixBarChartData() = BarChartData(
     groupingMode = BarGroupingMode.STACKED
 )
 
-//@Preview(showBackground = true, widthDp = 700)
-//@Composable
-//private fun MixBarChartPreview() {
-//     MixBarChart(modifier = Modifier.fillMaxSize())
-//}
+@Preview(showBackground = true)
+@Composable
+private fun MixBarChartPreview() {
+    MixBarChart()
+}
 

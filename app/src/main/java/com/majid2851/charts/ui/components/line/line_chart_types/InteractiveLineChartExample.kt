@@ -19,17 +19,7 @@ fun InteractiveLineChartExample(modifier: Modifier = Modifier) {
     var selectedInfo by remember { mutableStateOf("Tap on a point to see its data") }
     
     Column(modifier = modifier.padding(Dimens.paddingSmall)) {
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = Dimens.paddingMedium)
-        ) {
-            Text(
-                text = selectedInfo,
-                modifier = Modifier.padding(Dimens.paddingMedium),
-                style = MaterialTheme.typography.bodyMedium
-            )
-        }
+
         
         LineChart(
             data = LineChartData(

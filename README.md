@@ -29,51 +29,85 @@ A comprehensive, feature-rich charting library for Jetpack Compose, inspired by 
   <img src="docs/screenshots/percent_area_chart.png" width="250" alt="Percent Area Chart"/>
 </p>
 
+<p align="center">
+  <img src="docs/screenshots/cardinal_area_chart.png" width="250" alt="Cardinal Area Chart"/>
+  <img src="docs/screenshots/filled_area_line_chart.png" width="250" alt="Filled Area Line Chart"/>
+  <img src="docs/screenshots/tiny_area_chart.png" width="250" alt="Tiny Area Chart"/>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/area_chart_fill_by_value.png" width="250" alt="Area Chart Fill By Value"/>
+  <img src="docs/screenshots/area_chart_connect_nulls.png" width="250" alt="Area Chart Connect Nulls"/>
+  <img src="docs/screenshots/synchronized_area_chart.png" width="250" alt="Synchronized Area Chart"/>
+</p>
+
 ### Bar Charts
 <p align="center">
   <img src="docs/screenshots/simple_bar_chart.png" width="250" alt="Simple Bar Chart"/>
   <img src="docs/screenshots/stacked_bar_chart.png" width="250" alt="Stacked Bar Chart"/>
-  <img src="docs/screenshots/grouped_bar_chart.png" width="250" alt="Grouped Bar Chart"/>
+  <img src="docs/screenshots/mix_bar_chart.png" width="250" alt="Mix Bar Chart"/>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/tiny_bar_chart.png" width="250" alt="Tiny Bar Chart"/>
+  <img src="docs/screenshots/biaxial_bar_chart.png" width="250" alt="Biaxial Bar Chart"/>
+  <img src="docs/screenshots/positive_and_negative_bar_chart.png" width="250" alt="Positive And Negative Bar Chart"/>
 </p>
 
 ### Line Charts
 <p align="center">
-  <img src="docs/screenshots/simple_line_chart.png" width="250" alt="Simple Line Chart"/>
-  <img src="docs/screenshots/multi_line_chart.png" width="250" alt="Multi Line Chart"/>
   <img src="docs/screenshots/curved_line_chart.png" width="250" alt="Curved Line Chart"/>
+  <img src="docs/screenshots/multi_series_line_chart.png" width="250" alt="Multi Series Line Chart"/>
+  <img src="docs/screenshots/dashed_line_chart.png" width="250" alt="Dashed Line Chart"/>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/customized_dot_line_chart.png" width="250" alt="Customized Dot Line Chart"/>
+  <img src="docs/screenshots/line_chart_connect_nulls.png" width="250" alt="Line Chart Connect Nulls"/>
+  <img src="docs/screenshots/line_chart_with_reference_lines.png" width="250" alt="Line Chart With Reference Lines"/>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/line_chart_with_solid_grid.png" width="250" alt="Line Chart With Solid Grid"/>
+  <img src="docs/screenshots/interactive_simple_line_chart.png" width="250" alt="Interactive Simple Line Chart"/>
+  <img src="docs/screenshots/interactive_line_chart_example.png" width="250" alt="Interactive Line Chart Example"/>
 </p>
 
 ### Pie Charts
 <p align="center">
-  <img src="docs/screenshots/simple_pie_chart.png" width="250" alt="Simple Pie Chart"/>
   <img src="docs/screenshots/donut_chart.png" width="250" alt="Donut Chart"/>
-  <img src="docs/screenshots/pie_with_labels.png" width="250" alt="Pie Chart with Labels"/>
-</p>
-
-### Scatter & Bubble Charts
-<p align="center">
-  <img src="docs/screenshots/scatter_chart.png" width="250" alt="Scatter Chart"/>
-  <img src="docs/screenshots/bubble_chart.png" width="250" alt="Bubble Chart"/>
-  <img src="docs/screenshots/3d_scatter_chart.png" width="250" alt="3D Scatter Chart"/>
+  <img src="docs/screenshots/two_level_pie_chart.png" width="250" alt="Two Level Pie Chart"/>
 </p>
 
 ### Radar Charts
 <p align="center">
   <img src="docs/screenshots/simple_radar_chart.png" width="250" alt="Simple Radar Chart"/>
-  <img src="docs/screenshots/multi_radar_chart.png" width="250" alt="Multi Radar Chart"/>
+  <img src="docs/screenshots/specified_domain_radar_chart.png" width="250" alt="Specified Domain Radar Chart"/>
 </p>
 
 ### Composed Charts
 <p align="center">
-  <img src="docs/screenshots/line_bar_area_chart.png" width="250" alt="Line Bar Area Chart"/>
-  <img src="docs/screenshots/scatter_line_chart.png" width="250" alt="Scatter and Line Chart"/>
-  <img src="docs/screenshots/target_price_chart.png" width="250" alt="Target Price Chart"/>
+  <img src="docs/screenshots/line_bar_area_composed_chart.png" width="250" alt="Line Bar Area Composed Chart"/>
+  <img src="docs/screenshots/same_data_composed_chart.png" width="250" alt="Same Data Composed Chart"/>
+  <img src="docs/screenshots/vertical_composed_chart.png" width="250" alt="Vertical Composed Chart"/>
 </p>
 
-### TreeMap & Radial Bar Charts
 <p align="center">
-  <img src="docs/screenshots/treemap_chart.png" width="250" alt="TreeMap Chart"/>
-  <img src="docs/screenshots/radial_bar_chart.png" width="250" alt="Radial Bar Chart"/>
+  <img src="docs/screenshots/composed_chart_with_axis_labels.png" width="250" alt="Composed Chart With Axis Labels"/>
+  <img src="docs/screenshots/scatter_and_line_of_best_fit.png" width="250" alt="Scatter And Line Of Best Fit"/>
+  <img src="docs/screenshots/banded_chart.png" width="250" alt="Banded Chart"/>
+</p>
+
+### Radial Bar Charts
+<p align="center">
+  <img src="docs/screenshots/simple_radial_bar_chart.png" width="250" alt="Simple Radial Bar Chart"/>
+</p>
+
+### Responsive Charts
+<p align="center">
+  <img src="docs/screenshots/responsive_area_chart.png" width="250" alt="Responsive Area Chart"/>
+  <img src="docs/screenshots/responsive_composed_chart.png" width="250" alt="Responsive Composed Chart"/>
+  <img src="docs/screenshots/responsive_pie_chart.png" width="250" alt="Responsive Pie Chart"/>
 </p>
 
 ## 🚀 Installation
