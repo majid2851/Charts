@@ -532,7 +532,7 @@ cd compose-charts
 ## 📝 License
 
 ```
-Copyright 2024 Majid Mohammadi
+Copyright 2024 Majid Bagheri
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -554,8 +554,8 @@ limitations under the License.
 
 ## 📞 Contact & Support
 
-- **Author**: Majid Mohammadi
-- **Email**: majid2851@gmail.com
+- **Author**: Majid Bagheri
+- **Email**: majidbagheri2851@gmail.com
 - **GitHub**: [@majid2851](https://github.com/majid2851)
 - **Issues**: [Report a bug](https://github.com/majid2851/compose-charts/issues)
 
@@ -565,4 +565,4 @@ If you find this library helpful, please give it a ⭐️ on GitHub!
 
 ---
 
-Made with ❤️ by [Majid Mohammadi](https://github.com/majid2851)
+Made with ❤️ by [Majid Bagheri](https://github.com/majid2851)
