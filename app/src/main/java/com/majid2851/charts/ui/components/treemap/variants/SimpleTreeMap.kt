@@ -16,7 +16,7 @@ import com.majid2851.charts.ui.components.treemap.TreeMapChart
 import com.majid2851.charts.ui.theme.Dimens
 
 @Composable
-fun SimpleTreeMap(
+fun  SimpleTreeMap(
     modifier: Modifier = Modifier,
     width: Dp = 500.dp,
     height: Dp = Dimens.chartHeightLarge,

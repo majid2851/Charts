@@ -1,216 +1,125 @@
 # 📊 Compose Charts Library
 
-A comprehensive, production-ready charting library for Jetpack Compose with 9+ chart types and 50+ pre-built variants.
+A comprehensive, feature-rich charting library for Jetpack Compose, inspired by Recharts. Create beautiful, interactive charts with minimal code.
 
-[![](https://img.shields.io/badge/Compose-1.5.1-blue.svg)](https://developer.android.com/jetpack/compose)
-[![](https://img.shields.io/badge/Kotlin-1.9+-purple.svg)](https://kotlinlang.org/)
-[![](https://img.shields.io/badge/minSdk-24-green.svg)](https://developer.android.com/studio/releases/platforms)
-[![](https://img.shields.io/badge/License-Apache%202.0-orange.svg)](LICENSE)
+[![](https://img.shields.io/badge/Compose-1.5.0-blue.svg)](https://developer.android.com/jetpack/compose)
+[![](https://img.shields.io/badge/Kotlin-1.9.0-purple.svg)](https://kotlinlang.org/)
+[![](https://img.shields.io/badge/API-21%2B-brightgreen.svg)](https://android-arsenal.com/api?level=21)
+[![License](https://img.shields.io/badge/License-Apache%202.0-orange.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## 🎯 Project Structure
+## ✨ Features
 
-This repository contains:
+- 🎨 **9 Chart Types**: Area, Bar, Line, Pie, Scatter, Radar, Composed, TreeMap, and Radial Bar charts
+- 📱 **Fully Responsive**: Charts adapt to different screen sizes and orientations
+- 🎭 **Highly Customizable**: Extensive styling and configuration options
+- ⚡ **Performance Optimized**: Smooth animations and efficient rendering
+- 🖱️ **Interactive**: Built-in support for click events and tooltips
+- 🎯 **Type-Safe**: Leverages Kotlin's type system for safer code
+- 🧩 **Composable**: Built with Jetpack Compose from the ground up
+- 📊 **Multiple Data Sets**: Support for multiple series in a single chart
+- 🎨 **Gradient Support**: Beautiful gradient fills for area and bar charts
+- 🔄 **Animations**: Smooth entry and update animations
 
-- **`charts-library/`** - The reusable charting library for developers
-- **`app/`** - Demo application with 50+ chart examples
+## 📸 Chart Gallery
 
-## 📊 Chart Types
+### Area Charts
+<p align="center">
+  <img src="docs/screenshots/simple_area_chart.png" width="250" alt="Simple Area Chart"/>
+  <img src="docs/screenshots/stacked_area_chart.png" width="250" alt="Stacked Area Chart"/>
+  <img src="docs/screenshots/percent_area_chart.png" width="250" alt="Percent Area Chart"/>
+</p>
 
-The library includes 9 different chart types with multiple variants:
+### Bar Charts
+<p align="center">
+  <img src="docs/screenshots/simple_bar_chart.png" width="250" alt="Simple Bar Chart"/>
+  <img src="docs/screenshots/stacked_bar_chart.png" width="250" alt="Stacked Bar Chart"/>
+  <img src="docs/screenshots/grouped_bar_chart.png" width="250" alt="Grouped Bar Chart"/>
+</p>
 
-1. **Line Chart** (10+ variants) - Trends, multi-series, curved lines, area fill, zoom/pan
-2. **Bar Chart** (6+ variants) - Grouped, stacked, horizontal, biaxial
-3. **Pie Chart** (3+ variants) - Standard pie, donut, two-level hierarchical
-4. **Area Chart** (9+ variants) - Stacked, percent, smooth curves
-5. **Scatter Chart** (6+ variants) - Bubble charts, 3D effects, with labels
-6. **Radar Chart** (2+ variants) - Multi-dimensional data visualization
-7. **Composed Chart** (8+ variants) - Combine multiple chart types
-8. **Radial Bar Chart** - Circular progress and metrics
-9. **TreeMap** - Hierarchical data visualization
+### Line Charts
+<p align="center">
+  <img src="docs/screenshots/simple_line_chart.png" width="250" alt="Simple Line Chart"/>
+  <img src="docs/screenshots/multi_line_chart.png" width="250" alt="Multi Line Chart"/>
+  <img src="docs/screenshots/curved_line_chart.png" width="250" alt="Curved Line Chart"/>
+</p>
 
-## 🏗️ Architecture
+### Pie Charts
+<p align="center">
+  <img src="docs/screenshots/simple_pie_chart.png" width="250" alt="Simple Pie Chart"/>
+  <img src="docs/screenshots/donut_chart.png" width="250" alt="Donut Chart"/>
+  <img src="docs/screenshots/pie_with_labels.png" width="250" alt="Pie Chart with Labels"/>
+</p>
 
-This project follows **Clean Architecture** + **MVI (Model-View-Intent)** pattern:
+### Scatter & Bubble Charts
+<p align="center">
+  <img src="docs/screenshots/scatter_chart.png" width="250" alt="Scatter Chart"/>
+  <img src="docs/screenshots/bubble_chart.png" width="250" alt="Bubble Chart"/>
+  <img src="docs/screenshots/3d_scatter_chart.png" width="250" alt="3D Scatter Chart"/>
+</p>
 
-```
-📦 com.majid2851.charts
-├── 📂 domain                    # Business logic & models
-│   └── 📂 model
-│       ├── ChartData.kt         # Base interfaces
-│       ├── ChartConfig.kt       # Common configurations
-│       ├── LineChartData.kt
-│       ├── BarChartData.kt
-│       ├── PieChartData.kt
-│       ├── AreaChartData.kt
-│       ├── ScatterChartData.kt
-│       ├── RadarChartData.kt
-│       ├── CandlestickChartData.kt
-│       └── GaugeChartData.kt
-│
-├── 📂 presentation              # MVI ViewModels
-│   ├── 📂 base
-│   │   ├── ViewState.kt
-│   │   ├── ViewIntent.kt
-│   │   ├── ViewEffect.kt
-│   │   └── MviViewModel.kt     # Base ViewModel for MVI
-│   ├── 📂 line
-│   │   ├── LineChartContract.kt
-│   │   └── LineChartViewModel.kt
-│   ├── 📂 bar
-│   ├── 📂 pie
-│   ├── 📂 area
-│   ├── 📂 scatter
-│   ├── 📂 radar
-│   ├── 📂 candlestick
-│   └── 📂 gauge
-│
-└── 📂 ui                        # Compose UI components
-    ├── 📂 components
-    │   ├── 📂 base
-    │   │   └── BaseChart.kt    # Common utilities
-    │   ├── 📂 line
-    │   │   └── LineChart.kt
-    │   ├── 📂 bar
-    │   │   └── BarChart.kt
-    │   ├── 📂 pie
-    │   │   └── PieChart.kt
-    │   ├── 📂 area
-    │   │   └── AreaChart.kt
-    │   ├── 📂 scatter
-    │   │   └── ScatterChart.kt
-    │   ├── 📂 radar
-    │   │   └── RadarChart.kt
-    │   ├── 📂 candlestick
-    │   │   └── CandlestickChart.kt
-    │   └── 📂 gauge
-    │       └── GaugeChart.kt
-    ├── 📂 screens
-    │   └── ChartDemoScreen.kt  # Demo screen
-    └── 📂 theme
-```
+### Radar Charts
+<p align="center">
+  <img src="docs/screenshots/simple_radar_chart.png" width="250" alt="Simple Radar Chart"/>
+  <img src="docs/screenshots/multi_radar_chart.png" width="250" alt="Multi Radar Chart"/>
+</p>
 
-## 🎯 MVI Pattern
+### Composed Charts
+<p align="center">
+  <img src="docs/screenshots/line_bar_area_chart.png" width="250" alt="Line Bar Area Chart"/>
+  <img src="docs/screenshots/scatter_line_chart.png" width="250" alt="Scatter and Line Chart"/>
+  <img src="docs/screenshots/target_price_chart.png" width="250" alt="Target Price Chart"/>
+</p>
 
-Each chart follows the MVI pattern:
+### TreeMap & Radial Bar Charts
+<p align="center">
+  <img src="docs/screenshots/treemap_chart.png" width="250" alt="TreeMap Chart"/>
+  <img src="docs/screenshots/radial_bar_chart.png" width="250" alt="Radial Bar Chart"/>
+</p>
+
+## 🚀 Installation
+
+### Gradle (Kotlin DSL)
+
+Add the dependency to your app's `build.gradle.kts`:
 
 ```kotlin
-// State - Represents the UI state
-data class State(
-    val chartData: ChartData? = null,
-    val isLoading: Boolean = false,
-    val error: String? = null,
-    val isAnimating: Boolean = false
-) : ViewState
-
-// Intent - User actions
-sealed class Intent : ViewIntent {
-    data class LoadChartData(val data: ChartData) : Intent()
-    data class UpdateChartData(val data: ChartData) : Intent()
-}
-
-// Effect - One-time events
-sealed class Effect : ViewEffect {
-    data class ShowError(val error: String) : Effect()
-}
-
-// ViewModel
-class ChartViewModel : MviViewModel<State, Intent, Effect>(State()) {
-    override fun handleIntent(intent: Intent) {
-        // Handle user intents
-    }
-}
-```
-
-## 📋 Features
-
-### Core Features
-- ✅ **8 Chart Types** - Line, Bar, Pie, Area, Scatter, Radar, Candlestick, Gauge
-- ✅ **Jetpack Compose** - Modern UI toolkit
-- ✅ **MVI Architecture** - Unidirectional data flow
-- ✅ **Clean Architecture** - Separation of concerns
-- ✅ **Highly Configurable** - Extensive customization options
-- ✅ **Type-safe** - Kotlin with strong typing
-
-### Chart Features (To be implemented)
-- ⏳ Touch interactions (pan, zoom, tap)
-- ⏳ Smooth animations
-- ⏳ Legends (customizable position)
-- ⏳ Axis labels & grid lines
-- ⏳ Tooltips/data labels
-- ⏳ Multiple datasets support
-- ⏳ Real-time data updates
-- ⏳ Custom colors & themes
-- ⏳ Export to image
-
-## 📦 Installation
-
-### Option 1: JitPack (Recommended)
-
-Add JitPack repository to your `settings.gradle.kts`:
-
-```kotlin
-dependencyResolutionManagement {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url = uri("https://jitpack.io") }
-    }
-}
-```
-
-Add the dependency:
-
-```kotlin
-dependencies {
-    implementation("com.github.majid2851:charts:1.0.0")
-}
-```
-
-### Option 2: Local Maven (Testing)
-
-```bash
-./gradlew :charts-library:publishToMavenLocal
-```
-
-```kotlin
-repositories {
-    mavenLocal()
-}
 dependencies {
     implementation("com.majid2851:compose-charts:1.0.0")
 }
 ```
 
-## 🚀 Quick Start
+### Gradle (Groovy)
+
+Add the dependency to your app's `build.gradle`:
+
+```groovy
+dependencies {
+    implementation 'com.majid2851:compose-charts:1.0.0'
+}
+```
+
+### Maven
+
+```xml
+<dependency>
+    <groupId>com.majid2851</groupId>
+    <artifactId>compose-charts</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+## 📖 Quick Start
 
 ### Simple Line Chart
 
 ```kotlin
-import com.majid2851.charts.ui.components.line.line_chart.LineChart
-import com.majid2851.charts.domain.model.LineChartData
-import com.majid2851.charts.domain.model.LineDataSet
-import com.majid2851.charts.domain.model.DataPoint
-
 @Composable
-fun MyChart() {
-    LineChart(
-        data = LineChartData(
-            lines = listOf(
-                LineDataSet(
-                    label = "Sales",
-                    dataPoints = listOf(
-                        DataPoint(x = 0f, y = 100f),
-                        DataPoint(x = 1f, y = 200f),
-                        DataPoint(x = 2f, y = 150f),
-                        DataPoint(x = 3f, y = 300f)
-                    ),
-                    lineColor = Color(0xFF8884d8),
-                    isCurved = true,
-                    fillArea = true
-                )
-            ),
-            xAxisLabels = listOf("Jan", "Feb", "Mar", "Apr")
-        ),
+fun MyLineChart() {
+    SimpleLineChart(
+        title = "Monthly Sales",
+        categories = listOf("Jan", "Feb", "Mar", "Apr", "May", "Jun"),
+        values = listOf(400f, 300f, 600f, 800f, 500f, 700f),
+        lineColor = Color.Blue,
         modifier = Modifier
             .fillMaxWidth()
             .height(300.dp)
@@ -218,233 +127,408 @@ fun MyChart() {
 }
 ```
 
-### Bar Chart
+### Simple Bar Chart
 
 ```kotlin
-import com.majid2851.charts.ui.components.bar.BarChart
-import com.majid2851.charts.domain.model.BarChartData
-import com.majid2851.charts.domain.model.BarDataSet
-
 @Composable
 fun MyBarChart() {
-    BarChart(
-        data = BarChartData(
-            categories = listOf("Q1", "Q2", "Q3", "Q4"),
-            datasets = listOf(
-                BarDataSet(
-                    label = "Revenue",
-                    dataPoints = listOf(
-                        DataPoint(x = 0f, y = 4000f),
-                        DataPoint(x = 1f, y = 3000f),
-                        DataPoint(x = 2f, y = 2000f),
-                        DataPoint(x = 3f, y = 2780f)
-                    ),
-                    color = Color(0xFF8884d8)
+    SimpleBarChart(
+        title = "Product Sales",
+        categories = listOf("Product A", "Product B", "Product C", "Product D"),
+        values = listOf(2400f, 1398f, 9800f, 3908f),
+        barColor = Color(0xFF8884d8),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(300.dp)
+    )
+}
+```
+
+### Simple Pie Chart
+
+```kotlin
+@Composable
+fun MyPieChart() {
+    SimplePieChart(
+        title = "Market Share",
+        slices = listOf(
+            PieSlice("Chrome", 45f, Color(0xFF0088FE)),
+            PieSlice("Safari", 25f, Color(0xFF00C49F)),
+            PieSlice("Firefox", 20f, Color(0xFFFFBB28)),
+            PieSlice("Edge", 10f, Color(0xFFFF8042))
+        ),
+        showLegend = true,
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(350.dp)
+    )
+}
+```
+
+### Bubble Chart
+
+```kotlin
+@Composable
+fun MyBubbleChart() {
+    BubbleChart(
+        title = "3D Data Visualization",
+        scatterSets = listOf(
+            ScatterDataSet(
+                label = "Group A",
+                dataPoints = listOf(
+                    ScatterPoint(100f, 200f, mapOf("z" to 20f)),
+                    ScatterPoint(120f, 100f, mapOf("z" to 30f)),
+                    ScatterPoint(170f, 300f, mapOf("z" to 15f))
+                ),
+                pointColor = Color.Red
+            )
+        ),
+        zAxisConfig = ZAxisConfig(dataKey = "z", range = Pair(10f, 50f)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(400.dp)
+    )
+}
+```
+
+### Radar Chart
+
+```kotlin
+@Composable
+fun MyRadarChart() {
+    SimpleRadarChart(
+        title = "Student Performance",
+        labels = listOf("Math", "Physics", "Chemistry", "Biology", "English", "History"),
+        values = listOf(85f, 90f, 78f, 88f, 92f, 80f),
+        dataSetLabel = "Student A",
+        lineColor = Color(0xFF8884d8),
+        fillColor = Color(0xFF8884d8),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(400.dp)
+    )
+}
+```
+
+### Composed Chart (Multiple Chart Types)
+
+```kotlin
+@Composable
+fun MyComposedChart() {
+    LineBarAreaComposedChart(
+        title = "Sales Analytics",
+        categories = listOf("Jan", "Feb", "Mar", "Apr", "May", "Jun"),
+        areaDataSets = listOf(
+            AreaDataSet(
+                label = "Revenue",
+                dataPoints = listOf(/*...*/),
+                fillColor = Color(0xFF8884d8)
+            )
+        ),
+        barDataSets = listOf(
+            ComposedBarDataSet(
+                label = "Orders",
+                dataPoints = listOf(/*...*/),
+                color = Color(0xFF82ca9d)
+            )
+        ),
+        lineDataSets = listOf(
+            LineDataSet(
+                label = "Profit",
+                dataPoints = listOf(/*...*/),
+                lineColor = Color(0xFFffc658)
+            )
+        ),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(400.dp)
+    )
+}
+```
+
+### Radial Bar Chart
+
+```kotlin
+@Composable
+fun MyRadialBarChart() {
+    SimpleRadialBarChart(
+        title = "Age Distribution",
+        bars = listOf(
+            RadialBarEntry("18-24", 31.47f, Color(0xFF8884d8)),
+            RadialBarEntry("25-29", 26.69f, Color(0xFF83a6ed)),
+            RadialBarEntry("30-34", 15.69f, Color(0xFF8dd1e1)),
+            RadialBarEntry("35-39", 8.22f, Color(0xFF82ca9d))
+        ),
+        showLegend = true,
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(400.dp)
+    )
+}
+```
+
+### TreeMap Chart
+
+```kotlin
+@Composable
+fun MyTreeMap() {
+    SimpleTreeMap(
+        title = "File System Size",
+        nodes = listOf(
+            TreeMapNode(
+                name = "Documents",
+                children = listOf(
+                    TreeMapNode("PDFs", size = 5000f),
+                    TreeMapNode("Images", size = 8000f),
+                    TreeMapNode("Videos", size = 15000f)
+                )
+            ),
+            TreeMapNode(
+                name = "Applications",
+                children = listOf(
+                    TreeMapNode("System", size = 12000f),
+                    TreeMapNode("User", size = 7000f)
                 )
             )
         ),
         modifier = Modifier
             .fillMaxWidth()
-            .height(300.dp)
-    )
-}
-```
-
-### Pie Chart
-
-```kotlin
-import com.majid2851.charts.ui.components.pie.PieChart
-import com.majid2851.charts.domain.model.PieChartData
-import com.majid2851.charts.domain.model.PieSlice
-
-@Composable
-fun MyPieChart() {
-    PieChart(
-        data = PieChartData(
-            slices = listOf(
-                PieSlice(name = "A", value = 400f, color = Color(0xFF0088FE)),
-                PieSlice(name = "B", value = 300f, color = Color(0xFF00C49F)),
-                PieSlice(name = "C", value = 300f, color = Color(0xFFFFBB28)),
-                PieSlice(name = "D", value = 200f, color = Color(0xFFFF8042))
-            ),
-            config = PieChartConfig(showLabels = true)
-        ),
-        modifier = Modifier.size(300.dp)
+            .height(400.dp)
     )
 }
 ```
 
 ## 🎨 Customization
 
-### Chart Configuration
+All charts support extensive customization options:
+
+### Common Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `title` | `String?` | Chart title | `null` |
+| `modifier` | `Modifier` | Compose modifier | `Modifier` |
+| `width` | `Dp` | Chart width | `400.dp` |
+| `height` | `Dp` | Chart height | `300.dp` |
+| `showGrid` | `Boolean` | Show grid lines | `true` |
+| `showAxis` | `Boolean` | Show axis | `true` |
+| `showLegend` | `Boolean` | Show legend | `true` |
+| `chartPadding` | `Dp` | Internal padding | `16.dp` |
+| `isInteractive` | `Boolean` | Enable interactions | `true` |
+
+### Chart-Specific Styling
+
+#### Line Chart
+- `lineColor`: Color of the line
+- `lineWidth`: Width of the line
+- `isCurved`: Smooth curved lines
+- `showPoints`: Show data points
+- `pointSize`: Size of data points
+- `gradientColors`: Gradient below line
+
+#### Bar Chart
+- `barColor`: Color of bars
+- `barSize`: Width of bars
+- `orientation`: Horizontal or Vertical
+- `isStacked`: Stack multiple series
+- `barRadius`: Rounded corners
+
+#### Pie Chart
+- `innerRadius`: Donut hole size (0-1)
+- `outerRadius`: Outer radius (0-1)
+- `labelPosition`: Inside or outside labels
+- `startAngle`: Starting angle
+- `sliceSpacing`: Gap between slices
+
+#### Scatter/Bubble Chart
+- `pointColor`: Color of points
+- `pointSize`: Size of points
+- `showLine`: Connect points with line
+- `zAxisConfig`: Configure Z-axis for bubble size
+
+#### Radar Chart
+- `outerRadius`: Chart size (0-1)
+- `domain`: Value range
+- `showGrid`: Show concentric circles
+- `polarGridConfig`: Customize grid appearance
+
+## 📱 Responsive Charts
+
+Use responsive containers for charts that adapt to available space:
 
 ```kotlin
-val config = ChartConfig(
-    showGrid = true,
-    showAxis = true,
-    showLegend = true,
-    animationEnabled = true,
-    animationDuration = 300,
-    backgroundColor = Color.White,
-    chartPadding = 16.dp,
-    isInteractive = true
+@Composable
+fun MyResponsiveChart() {
+    ResponsiveContainer(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(300.dp)
+    ) { width, height ->
+        LineChart(
+            data = myData,
+            modifier = Modifier.fillMaxSize()
+        )
+    }
+}
+```
+
+Pre-built responsive variants:
+- `ResponsiveAreaChart()`
+- `ResponsiveComposedChart()`
+- `ResponsivePieChart()`
+
+## 🎯 Advanced Features
+
+### Multiple Data Sets
+
+```kotlin
+MultiLineChart(
+    title = "Temperature Comparison",
+    lines = listOf(
+        LineDataSet(
+            label = "City A",
+            dataPoints = cityAData,
+            lineColor = Color.Red
+        ),
+        LineDataSet(
+            label = "City B",
+            dataPoints = cityBData,
+            lineColor = Color.Blue
+        )
+    ),
+    modifier = Modifier.fillMaxWidth()
 )
 ```
 
-### Axis Configuration
+### Custom Callbacks
 
 ```kotlin
-val axisConfig = AxisConfig(
-    showLabels = true,
-    showGridLines = true,
-    labelCount = 5,
-    axisColor = Color.Gray,
-    gridColor = Color.LightGray,
-    labelTextSize = 12f
+SimpleBarChart(
+    title = "Sales",
+    categories = categories,
+    values = values,
+    onBarClick = { category, value, index ->
+        println("Clicked: $category with value $value")
+    },
+    modifier = Modifier.fillMaxWidth()
 )
 ```
 
-## 🛠️ Tech Stack
+### Gradient Fills
 
-- **Language**: Kotlin
-- **UI**: Jetpack Compose
-- **Architecture**: MVI + Clean Architecture
-- **State Management**: StateFlow
-- **Coroutines**: Kotlin Coroutines
-- **Min SDK**: 24
-- **Target SDK**: 34
-
-## 📦 Dependencies
-
-```gradle
-// Compose
-implementation("androidx.compose.ui:ui")
-implementation("androidx.compose.material3:material3")
-implementation("androidx.compose.foundation:foundation")
-
-// ViewModel & MVI
-implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4")
-implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.4")
-
-// Coroutines
-implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+```kotlin
+SimpleAreaChart(
+    title = "Revenue",
+    categories = months,
+    values = revenue,
+    gradientColors = listOf(
+        Color(0xFF8884d8),
+        Color(0xFF8884d8).copy(alpha = 0.3f)
+    ),
+    modifier = Modifier.fillMaxWidth()
+)
 ```
 
-## ✨ Features
+### Custom Axis Labels
 
-### Core Features
-- ✅ **9 Chart Types** - Line, Bar, Pie, Area, Scatter, Radar, Composed, Radial Bar, TreeMap
-- ✅ **50+ Variants** - Pre-configured examples for common use cases
-- ✅ **Jetpack Compose** - Modern declarative UI
-- ✅ **Material 3 Support** - Follow Material Design guidelines
-- ✅ **Highly Customizable** - Fine-grained control over every aspect
-- ✅ **Responsive Design** - Automatic adaptation to screen sizes
-- ✅ **Performance Optimized** - Efficient Canvas-based rendering
-- ✅ **Interactive Features** - Zoom, pan, tap interactions, crosshair
-- ✅ **Complex Compositions** - Combine multiple chart types in one view
-- ✅ **Rich Styling** - Colors, gradients, patterns, and more
-
-### Interactive Features
-- ✅ Zoom and pan gestures (Line Chart)
-- ✅ Tap to highlight data points
-- ✅ Crosshair for precise value reading
-- ✅ Multi-point selection
-- ✅ Drag to show vertical line
-- ✅ Touch interactions across all charts
-
-### Visualization Features
-- ✅ Curved lines (Bézier interpolation)
-- ✅ Dashed lines
-- ✅ Area fills with gradients
-- ✅ Stacked charts (Bar, Area)
-- ✅ Grouped charts (Bar)
-- ✅ Reference lines
-- ✅ Custom grid patterns
-- ✅ Negative value support
-- ✅ Connect nulls option
-- ✅ Custom point shapes and sizes
-
-## 📚 Documentation
-
-- **[charts-library/README.md](charts-library/README.md)** - Complete library documentation
-- **[charts-library/API.md](charts-library/API.md)** - Full API reference
-- **[charts-library/QUICK_START.md](charts-library/QUICK_START.md)** - Get started in minutes
-- **[LIBRARY_PUBLISHING_GUIDE.md](LIBRARY_PUBLISHING_GUIDE.md)** - How to publish the library
-
-## 🎯 Demo App
-
-The `app/` module contains a comprehensive demo with:
-- **50+ chart variants** across all chart types
-- **Interactive examples** showing zoom, pan, and tap features
-- **Customization demos** for colors, styles, and configurations
-- **Responsive examples** showing adaptive layouts
-- **Best practices** and recommended patterns
-
-Run the demo app to explore all features:
-
-```bash
-./gradlew :app:installDebug
+```kotlin
+ComposedChartWithAxisLabels(
+    title = "Performance Metrics",
+    xAxisLabel = "Time Period",
+    yAxisLabel = "Value (Units)",
+    xLabelPosition = LabelPosition.INSIDE_BOTTOM,
+    yLabelPosition = LabelPosition.INSIDE_LEFT,
+    modifier = Modifier.fillMaxWidth()
+)
 ```
 
-## 🚀 For Library Users
+## 📚 Complete Documentation
 
-### Installation
-See [Installation](#installation) section above.
+For detailed documentation on each chart type, see:
 
-### Quick Start
-See [Quick Start](#quick-start) section above.
+- [Area Charts Guide](docs/AREA_CHARTS.md)
+- [Bar Charts Guide](docs/BAR_CHARTS.md)
+- [Line Charts Guide](docs/LINE_CHARTS.md)
+- [Pie Charts Guide](docs/PIE_CHARTS.md)
+- [Scatter Charts Guide](docs/SCATTER_CHARTS.md)
+- [Radar Charts Guide](docs/RADAR_CHARTS.md)
+- [Composed Charts Guide](docs/COMPOSED_CHARTS.md)
+- [TreeMap Charts Guide](docs/TREEMAP_CHARTS.md)
+- [Radial Bar Charts Guide](docs/RADIAL_BAR_CHARTS.md)
 
-### Full Documentation
-Read the complete documentation in [charts-library/README.md](charts-library/README.md).
+## 🏗️ Architecture
 
-### API Reference
-Browse the API documentation in [charts-library/API.md](charts-library/API.md).
+The library follows clean architecture principles:
 
-## 🔧 For Library Developers
-
-### Building the Library
-
-```bash
-# Build the library
-./gradlew :charts-library:build
-
-# Run tests
-./gradlew :charts-library:test
-
-# Publish to local Maven
-./gradlew :charts-library:publishToMavenLocal
 ```
-
-### Publishing
-
-See [LIBRARY_PUBLISHING_GUIDE.md](LIBRARY_PUBLISHING_GUIDE.md) for detailed instructions on:
-- Publishing to JitPack
-- Publishing to GitHub Packages
-- Publishing to Maven Central
-- Version management
-- CI/CD automation
-
-## 📄 License
-
-This project is available for use by other developers.
-
-## 👨‍💻 Author
-
-Created by majid2851
+compose-charts/
+├── domain/           # Data models and business logic
+│   └── model/       # Chart data classes
+├── ui/
+│   ├── components/  # Chart implementations
+│   │   ├── area/
+│   │   ├── bar/
+│   │   ├── line/
+│   │   ├── pie/
+│   │   ├── scatter/
+│   │   ├── radar/
+│   │   ├── composed/
+│   │   ├── treemap/
+│   │   └── radialbar/
+│   └── theme/       # Theming and styling
+└── utils/           # Helper utilities
+```
 
 ## 🤝 Contributing
 
-This is a library project open for contributions. Feel free to:
-- Report bugs
-- Suggest new features
-- Submit pull requests
-- Improve documentation
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
-## 📞 Contact
+### Development Setup
 
-For questions or suggestions, please open an issue in the repository.
+1. Clone the repository:
+```bash
+git clone https://github.com/majid2851/compose-charts.git
+cd compose-charts
+```
+
+2. Open in Android Studio
+3. Build the project
+4. Run the sample app to see all chart examples
+
+## 📝 License
+
+```
+Copyright 2024 Majid Mohammadi
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
+## 🙏 Acknowledgments
+
+- Inspired by [Recharts](https://recharts.org/) - A composable charting library built on React components
+- Built with [Jetpack Compose](https://developer.android.com/jetpack/compose)
+
+## 📞 Contact & Support
+
+- **Author**: Majid Mohammadi
+- **Email**: majid2851@gmail.com
+- **GitHub**: [@majid2851](https://github.com/majid2851)
+- **Issues**: [Report a bug](https://github.com/majid2851/compose-charts/issues)
+
+## ⭐ Show Your Support
+
+If you find this library helpful, please give it a ⭐️ on GitHub!
 
 ---
 
-**Note**: This is currently a skeleton project with the complete architecture in place. Chart rendering implementations are marked with TODO comments and need to be implemented.
-
+Made with ❤️ by [Majid Mohammadi](https://github.com/majid2851)
