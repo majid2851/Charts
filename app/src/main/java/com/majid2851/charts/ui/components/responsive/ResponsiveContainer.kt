@@ -23,35 +23,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-/**
- * ResponsiveContainer - Makes charts responsive to parent container size
- * Matches Recharts ResponsiveContainer functionality
- * 
- * Automatically adapts chart dimensions to fit its parent container,
- * maintaining aspect ratio and handling responsive layouts.
- * 
- * @param width Fixed width (null for 100% of parent width)
- * @param height Fixed height (null for 100% of parent height)
- * @param minWidth Minimum width constraint
- * @param minHeight Minimum height constraint
- * @param maxWidth Maximum width constraint
- * @param maxHeight Maximum height constraint
- * @param aspect Aspect ratio (width/height) to maintain
- * @param debounce Debounce time in ms for resize events
- * @param modifier Modifier for the container
- * @param content Chart content to display
- * 
- * @example
- * ```kotlin
- * ResponsiveContainer {
- *     AreaChart(
- *         data = data,
- *         modifier = Modifier.fillMaxSize()
- *     )
- * }
- * ```
- */
-
 @Composable
 fun ResponsiveContainer(
     width: Dp? = null,
