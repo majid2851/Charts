@@ -50,9 +50,26 @@ android {
 }
 
 dependencies {
-
-    // Charts Library - our main library
-    implementation(project(":charts-library"))
+    
+    // Compose BOM - manages all Compose versions
+    val composeBom = platform("androidx.compose:compose-bom:2023.10.01")
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+    
+    // Compose UI
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-graphics")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    
+    // Compose Foundation (LazyColumn, Row, Column, etc.)
+    implementation("androidx.compose.foundation:foundation")
+    
+    // Material 3
+    implementation("androidx.compose.material3:material3")
+    
+    // Material Icons
+    implementation("androidx.compose.material:material-icons-core")
+    implementation("androidx.compose.material:material-icons-extended")
     
     // Core Android
     implementation("androidx.core:core-ktx:1.12.0")
@@ -74,7 +91,6 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.06.01"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")

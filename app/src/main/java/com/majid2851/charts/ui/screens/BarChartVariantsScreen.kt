@@ -51,7 +51,7 @@ fun BarChartVariantsScreen(modifier: Modifier = Modifier) {
                     title = "Simple Bar Chart",
                     description = "Standard chart with multiple series, grid, and legend"
                 ) {
-                    SimpleBarChart(modifier = Modifier.fillMaxWidth().height(300.dp))
+                    SimpleBarChart(modifier = Modifier)
                 }
             }
             
@@ -64,8 +64,8 @@ fun BarChartVariantsScreen(modifier: Modifier = Modifier) {
                     StackedBarChart(modifier = Modifier)
                 }
             }
-            
-            // Mix Bar Chart
+
+
             item {
                 ChartSection(
                     title = "Mix Bar Chart",
@@ -74,14 +74,16 @@ fun BarChartVariantsScreen(modifier: Modifier = Modifier) {
                     MixBarChart(modifier = Modifier)
                 }
             }
-            
-            // Positive and Negative Bar Chart
+
             item {
                 ChartSection(
                     title = "Positive and Negative Bar Chart",
                     description = "Shows bars with both positive and negative values"
                 ) {
-                    PositiveAndNegativeBarChart(modifier = Modifier.fillMaxWidth().height(300.dp))
+                    PositiveAndNegativeBarChart(modifier = Modifier
+                        .fillMaxWidth()
+                        .height(300.dp)
+                    )
                 }
             }
             

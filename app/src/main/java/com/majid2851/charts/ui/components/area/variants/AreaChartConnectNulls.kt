@@ -7,12 +7,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.majid2851.charts.domain.model.AreaChartData
-import com.majid2851.charts.domain.model.AreaDataSet
-import com.majid2851.charts.domain.model.DataPoint
+import com.majid2851.charts.domain.model.*
 import com.majid2851.charts.ui.components.area.AreaChart
+import com.majid2851.charts.ui.theme.Dimens
 
 /**
  * Area Chart with Connect Nulls comparison
@@ -20,19 +20,18 @@ import com.majid2851.charts.ui.components.area.AreaChart
  */
 @Composable
 fun AreaChartConnectNulls(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    width: Dp = Dimens.previewChartWidth,
+    chartHeight: Dp = 200.dp,
+    areas: List<AreaDataSet> = getAreaChartConnectNullsData().areas,
+    showGrid: Boolean = true,
+    showAxis: Boolean = true,
+    showLegend: Boolean = true,
+    chartPadding: Dp = 16.dp,
+    animationEnabled: Boolean = true,
+    isInteractive: Boolean = true
 ) {
-    val data = listOf(
-        DataPoint(0f, 4000f, "Page A"),
-        DataPoint(1f, 3000f, "Page B"),
-        DataPoint(2f, 2000f, "Page C"),
-        null, // Missing data for Page D
-        DataPoint(4f, 1890f, "Page E"),
-        DataPoint(5f, 2390f, "Page F"),
-        DataPoint(6f, 3490f, "Page G")
-    )
-
-    Column(modifier = modifier) {
+    Column(modifier = modifier.width(width)) {
         Text(
             text = "Without Connect Nulls",
             fontSize = 16.sp,
@@ -42,20 +41,24 @@ fun AreaChartConnectNulls(
         
         AreaChart(
             data = AreaChartData(
-                areas = listOf(
-                    AreaDataSet(
-                        label = "UV",
-                        dataPoints = data,
-                        lineColor = Color(0xFF8884d8),
-                        fillColor = Color(0xFF8884d8).copy(alpha = 0.6f),
-                        isCurved = true
+                areas = areas,
+                connectNulls = false,
+                config = ChartConfig(
+                    showGrid = showGrid,
+                    showAxis = showAxis,
+                    showLegend = showLegend,
+                    chartPadding = chartPadding,
+                    animationEnabled = animationEnabled,
+                    isInteractive = isInteractive,
+                    cartesianGrid = CartesianGridConfig(
+                        horizontalDashPattern = floatArrayOf(3f, 3f),
+                        verticalDashPattern = floatArrayOf(3f, 3f)
                     )
-                ),
-                connectNulls = false
+                )
             ),
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp)
+                .height(chartHeight)
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -69,23 +72,57 @@ fun AreaChartConnectNulls(
 
         AreaChart(
             data = AreaChartData(
-                areas = listOf(
-                    AreaDataSet(
-                        label = "UV",
-                        dataPoints = data,
-                        lineColor = Color(0xFF8884d8),
-                        fillColor = Color(0xFF8884d8).copy(alpha = 0.6f),
-                        isCurved = true
+                areas = areas,
+                connectNulls = true,
+                config = ChartConfig(
+                    showGrid = showGrid,
+                    showAxis = showAxis,
+                    showLegend = showLegend,
+                    chartPadding = chartPadding,
+                    animationEnabled = animationEnabled,
+                    isInteractive = isInteractive,
+                    cartesianGrid = CartesianGridConfig(
+                        horizontalDashPattern = floatArrayOf(3f, 3f),
+                        verticalDashPattern = floatArrayOf(3f, 3f)
                     )
-                ),
-                connectNulls = true
+                )
             ),
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp)
+                .height(chartHeight)
         )
     }
 }
+
+private fun getAreaChartConnectNullsData() = AreaChartData(
+    areas = listOf(
+        AreaDataSet(
+            label = "UV",
+            dataPoints = listOf(
+                DataPoint(0f, 4000f, "Page A"),
+                DataPoint(1f, 3000f, "Page B"),
+                DataPoint(2f, 2000f, "Page C"),
+                null, // Missing data for Page D
+                DataPoint(4f, 1890f, "Page E"),
+                DataPoint(5f, 2390f, "Page F"),
+                DataPoint(6f, 3490f, "Page G")
+            ),
+            lineColor = Color(0xFF8884d8),
+            fillColor = Color(0xFF8884d8).copy(alpha = 0.6f),
+            isCurved = true
+        )
+    ),
+    config = ChartConfig(
+        showGrid = true,
+        showAxis = true,
+        showLegend = true,
+        chartPadding = 16.dp,
+        cartesianGrid = CartesianGridConfig(
+            horizontalDashPattern = floatArrayOf(3f, 3f),
+            verticalDashPattern = floatArrayOf(3f, 3f)
+        )
+    )
+)
 
 @Preview(showBackground = true)
 @Composable

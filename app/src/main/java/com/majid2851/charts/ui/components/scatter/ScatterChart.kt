@@ -346,10 +346,14 @@ private fun createStarPath(center: Offset, radius: Float): Path {
 
 /**
  * Map Z value to point size
+ * The z value represents the actual data value, not the pixel size
+ * We map it proportionally to the size range based on its relative value
  */
 private fun mapZToSize(z: Float, range: Pair<Float, Float>): Float {
     val (minSize, maxSize) = range
-    // Normalize z to 0-1 range (assuming z is positive)
+    // Normalize z to 0-1 range
+    // Assuming z values are typically between 0-500 for activity data
+    // Adjust this range based on your actual data
     val normalized = (z / 500f).coerceIn(0f, 1f)
     return minSize + (maxSize - minSize) * normalized
 }

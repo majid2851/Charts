@@ -65,7 +65,7 @@ fun AreaChart(
                         if (data.config.isInteractive) {
                             detectTapGestures { tapOffset ->
                                 // Find closest point
-                                val padding = 40f
+                                val leftPadding = if (data.config.showAxis) 60f else 20f
                                 val bounds = calculateAreaBounds(data.areas, data.stackingMode)
                                 
                                 val closestPoint = findClosestPoint(
@@ -74,7 +74,7 @@ fun AreaChart(
                                     bounds = bounds,
                                     canvasWidth = size.width.toFloat(),
                                     canvasHeight = size.height.toFloat(),
-                                    padding = padding
+                                    padding = leftPadding
                                 )
                                 
                                 closestPoint?.let { (areaIdx, pointIdx) ->
@@ -89,9 +89,14 @@ fun AreaChart(
                         }
                     }
             ) {
-                val padding = 40f
-                val chartWidth = size.width - padding * 2
-                val chartHeight = size.height - padding * 2
+                // Calculate margins (like BarChart)
+                val leftPadding = if (data.config.showAxis) 60f else 20f
+                val rightPadding = 20f
+                val topPadding = 20f
+                val bottomPadding = if (data.config.showAxis) 40f else 20f
+                
+                val chartWidth = size.width - leftPadding - rightPadding
+                val chartHeight = size.height - topPadding - bottomPadding
 
                 if (data.areas.isEmpty() || chartWidth <= 0 || chartHeight <= 0) return@ChartCanvas
 
@@ -103,7 +108,7 @@ fun AreaChart(
                     drawCartesianGrid(
                         bounds = bounds,
                         gridConfig = data.config.cartesianGrid,
-                        padding = padding
+                        padding = leftPadding
                     )
                 }
 
@@ -112,20 +117,20 @@ fun AreaChart(
                     AreaStackingMode.NONE -> drawRegularAreas(
                         areas = data.areas,
                         bounds = bounds,
-                        padding = padding,
+                        padding = leftPadding,
                         connectNulls = data.connectNulls,
                         selectedPoint = selectedPoint
                     )
                     AreaStackingMode.STACKED -> drawStackedAreas(
                         areas = data.areas,
                         bounds = bounds,
-                        padding = padding,
+                        padding = leftPadding,
                         connectNulls = data.connectNulls
                     )
                     AreaStackingMode.PERCENTAGE -> drawPercentageAreas(
                         areas = data.areas,
                         bounds = bounds,
-                        padding = padding,
+                        padding = leftPadding,
                         connectNulls = data.connectNulls
                     )
                 }
@@ -134,7 +139,7 @@ fun AreaChart(
                 if (data.config.showAxis) {
                     drawAxes(
                         bounds = bounds,
-                        padding = padding,
+                        padding = leftPadding,
                         xAxisConfig = data.xAxisConfig,
                         yAxisConfig = data.yAxisConfig,
                         textMeasurer = textMeasurer,
@@ -598,7 +603,7 @@ private fun DrawScope.drawAxes(
             drawText(
                 textLayoutResult = textResult,
                 topLeft = Offset(
-                    5f,
+                    padding - textResult.size.width - 10f,
                     y - textResult.size.height / 2
                 )
             )

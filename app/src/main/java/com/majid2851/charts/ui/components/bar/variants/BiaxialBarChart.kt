@@ -10,11 +10,6 @@ import androidx.compose.ui.unit.dp
 import com.majid2851.charts.domain.model.*
 import com.majid2851.charts.ui.components.bar.BarChart
 
-/**
- * Biaxial Bar Chart
- * Two Y-axes with different scales (left and right)
- * Note: Current implementation shows both bars, dual axis requires additional config
- */
 @Composable
 fun BiaxialBarChart(
     modifier: Modifier = Modifier,

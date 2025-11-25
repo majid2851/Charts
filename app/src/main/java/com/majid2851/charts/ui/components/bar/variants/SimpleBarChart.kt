@@ -1,6 +1,8 @@
 package com.majid2851.charts.ui.components.bar.variants
 
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -9,6 +11,7 @@ import androidx.compose.ui.unit.dp
 import com.majid2851.charts.domain.model.*
 import com.majid2851.charts.ui.components.bar.BarChart
 import androidx.compose.ui.unit.Dp
+import com.majid2851.charts.ui.theme.Dimens
 
 /**
  * Simple Bar Chart
@@ -17,6 +20,8 @@ import androidx.compose.ui.unit.Dp
 @Composable
 fun SimpleBarChart(
     modifier: Modifier = Modifier,
+    width: Dp = Dimens.previewChartWidth,
+    height: Dp = Dimens.chartHeightLarge,
     bars: List<BarDataSet> = getSimpleBarChartData().bars,
     title: String = "Simple Bar Chart",
     groupingMode: BarGroupingMode = BarGroupingMode.GROUPED,
@@ -46,6 +51,8 @@ fun SimpleBarChart(
             )
         ),
         modifier = modifier
+            .width(width)
+            .height(height)
     )
 }
 
@@ -90,10 +97,4 @@ private fun getSimpleBarChartData() = BarChartData(
         )
     )
 )
-
-@Preview(showBackground = true, widthDp = 700)
-@Composable
-private fun SimpleBarChartPreview() {
-    SimpleBarChart(modifier = Modifier.fillMaxSize())
-}
 

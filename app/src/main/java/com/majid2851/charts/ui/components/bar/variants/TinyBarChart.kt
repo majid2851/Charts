@@ -11,12 +11,13 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.majid2851.charts.domain.model.*
 import com.majid2851.charts.ui.components.bar.BarChart
+import com.majid2851.charts.ui.theme.Dimens
 
 @Composable
 fun TinyBarChart(
     modifier: Modifier = Modifier,
-    width: Dp = 300.dp,
-    height: Dp = 100.dp,
+    width: Dp = Dimens.previewChartWidth,
+    height: Dp =Dimens.chartHeightLarge,
     data: BarChartData = getTinyBarChartData()
 ) {
     BarChart(

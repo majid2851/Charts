@@ -65,26 +65,7 @@ fun ScatterChartVariantsScreen(modifier: Modifier = Modifier) {
                 }
             }
             
-            item {
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer
-                    )
-                ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Text("About Scatter Chart Variants", fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                        Text(
-                            text = "✓ 6 variants\n✓ Bubble charts\n✓ Connected scatter\n✓ Custom shapes\n✓ Labels and cells",
-                            fontSize = 14.sp,
-                            lineHeight = 20.sp
-                        )
-                    }
-                }
-            }
+
             
             item { Spacer(modifier = Modifier.height(16.dp)) }
         }

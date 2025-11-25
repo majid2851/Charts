@@ -6,6 +6,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.majid2851.charts.ui.components.composed.variants.*
 
@@ -102,20 +103,28 @@ fun ComposedChartExamplesScreen() {
             )
         }
 
-        // 7. Target Price Chart
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(400.dp)
-        ) {
-            TargetPriceChart(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(16.dp)
-            )
-        }
+//        // 7. Target Price Chart
+//        Card(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .height(400.dp)
+//        ) {
+//            TargetPriceChart(
+//                modifier = Modifier
+//                    .fillMaxSize()
+//                    .padding(16.dp)
+//            )
+//        }
 
         Spacer(modifier = Modifier.height(16.dp))
+    }
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+private fun ComposedChartExamplesScreenPreview() {
+    MaterialTheme {
+        ComposedChartExamplesScreen()
     }
 }
 

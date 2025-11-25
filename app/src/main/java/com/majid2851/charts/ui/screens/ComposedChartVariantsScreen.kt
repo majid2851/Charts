@@ -65,11 +65,11 @@ fun ComposedChartVariantsScreen(modifier: Modifier = Modifier) {
                 }
             }
             
-            item {
-                ChartSection("Target Price Chart", "Price targets with ranges") {
-                    TargetPriceChart()
-                }
-            }
+//            item {
+//                ChartSection("Target Price Chart", "Price targets with ranges") {
+//                    TargetPriceChart()
+//                }
+//            }
             
             item {
                 ChartSection("Responsive Composed Chart", "Auto-sizing") {

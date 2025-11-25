@@ -15,6 +15,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.majid2851.charts.domain.model.*
@@ -26,13 +27,65 @@ import kotlin.math.min
 import kotlin.math.sin
 
 /**
+ * RadialBarChart - Concentric circular bars with individual parameters
+ * User-friendly version for easy customization
+ */
+@Composable
+fun RadialBarChart(
+    bars: List<RadialBarEntry>,
+    modifier: Modifier = Modifier,
+    title: String? = null,
+    centerX: Float = 0.4f,
+    centerY: Float = 0.5f,
+    barSize: Float = 14f,
+    startAngle: Float = 0f,
+    endAngle: Float = 360f,
+    showBackground: Boolean = true,
+    backgroundOpacity: Float = 0.3f,
+    showLegend: Boolean = true,
+    showGrid: Boolean = false,
+    showAxis: Boolean = false,
+    chartPadding: Dp = 16.dp,
+    backgroundColor: Color = Color.White,
+    isInteractive: Boolean = true,
+    onBarClick: ((RadialBarEntry, Int) -> Unit)? = null
+) {
+    val data = RadialBarChartData(
+        title = title,
+        bars = bars,
+        config = ChartConfig(
+            showLegend = showLegend,
+            showGrid = showGrid,
+            showAxis = showAxis,
+            chartPadding = chartPadding,
+            backgroundColor = backgroundColor,
+            isInteractive = isInteractive
+        ),
+        centerX = centerX,
+        centerY = centerY,
+        barSize = barSize,
+        startAngle = startAngle,
+        endAngle = endAngle,
+        showBackground = showBackground,
+        backgroundOpacity = backgroundOpacity
+    )
+    
+    RadialBarChart(
+        data = data,
+        modifier = modifier,
+        onBarClick = onBarClick
+    )
+}
+
+/**
  * RadialBarChart - Concentric circular bars for hierarchical data visualization
  * Matches Recharts RadialBarChart functionality
  */
 @Composable
 fun RadialBarChart(
     data: RadialBarChartData,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onBarClick: ((RadialBarEntry, Int) -> Unit)? = null
 ) {
     val textMeasurer = rememberTextMeasurer()
 
@@ -65,9 +118,20 @@ fun RadialBarChart(
                 ChartCanvas(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    val centerX = size.width * data.centerX
-                    val centerY = size.height * data.centerY
-                    val maxRadius = min(size.width, size.height) * 0.4f
+                    // Calculate max radius first
+                    val availableWidth = if (data.config.showLegend) size.width * 0.7f else size.width
+                    val maxRadius = min(availableWidth, size.height) * 0.35f
+                    
+                    // Calculate center positions ensuring the chart fits within bounds
+                    val minCenterX = maxRadius + 20f // 20f padding
+                    val maxCenterX = availableWidth - maxRadius - 20f
+                    val requestedCenterX = size.width * data.centerX
+                    val centerX = requestedCenterX.coerceIn(minCenterX, maxCenterX)
+                    
+                    val minCenterY = maxRadius + 20f
+                    val maxCenterY = size.height - maxRadius - 20f
+                    val requestedCenterY = size.height * data.centerY
+                    val centerY = requestedCenterY.coerceIn(minCenterY, maxCenterY)
                     
                     drawRadialBars(
                         bars = data.bars,
@@ -210,8 +274,7 @@ private fun RadialBarLegend(
 @Preview(showBackground = true)
 @Composable
 private fun RadialBarChartPreview() {
-    val data = RadialBarChartData(
-        title = "Age Distribution",
+    RadialBarChart(
         bars = listOf(
             RadialBarEntry(
                 name = "18-24",
@@ -249,17 +312,11 @@ private fun RadialBarChartPreview() {
                 fill = Color(0xFFffc658)
             )
         ),
-        config = ChartConfig(
-            showLegend = true,
-            showGrid = false,
-            showAxis = false
-        ),
-        centerX = 0.3f,
-        barSize = 14f
-    )
-
-    RadialBarChart(
-        data = data,
+        title = "Age Distribution",
+        centerX = 0.4f,
+        centerY = 0.5f,
+        barSize = 14f,
+        showLegend = true,
         modifier = Modifier
             .fillMaxWidth()
             .height(400.dp)
